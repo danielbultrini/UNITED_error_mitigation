@@ -1,0 +1,15 @@
+nohup taskset -c 0 matlab -r "shot_noise_budget('4', '0', '0', '1', './results/', '')" < /dev/null > outfiles/o0.out0 2> outfiles/o0.err0&
+nohup taskset -c 1 matlab -r "shot_noise_budget('4', '0', '0', '2', './results/', '')" < /dev/null > outfiles/o1.out0 2> outfiles/o1.err0&
+nohup taskset -c 2-3 matlab -r "shot_noise_budget('4', '0', '0', '3', './results/', '')" < /dev/null > outfiles/o2.out0 2> outfiles/o2.err0&
+nohup taskset -c 4-5 matlab -r "shot_noise_budget('6', '0', '0', '1', './results/', '')" < /dev/null > outfiles/o3.out0 2> outfiles/o3.err0&
+nohup taskset -c 6-7 matlab -r "shot_noise_budget('6', '0', '0', '2', './results/', '')" < /dev/null > outfiles/o4.out0 2> outfiles/o4.err0&
+nohup taskset -c 8-9 matlab -r "shot_noise_budget('6', '0', '0', '3', './results/', '')" < /dev/null > outfiles/o5.out0 2> outfiles/o5.err0&
+nohup taskset -c 10-11 matlab -r "shot_noise_budget('8', '0', '0', '1', './results/', '')" < /dev/null > outfiles/o6.out0 2> outfiles/o6.err0&
+nohup taskset -c 12-13 matlab -r "shot_noise_budget('8', '0', '0', '2', './results/', '')" < /dev/null > outfiles/o7.out0 2> outfiles/o7.err0&
+nohup taskset -c 14-15 matlab -r "shot_noise_budget('8', '0', '0', '3', './results/', '')" < /dev/null > outfiles/o8.out0 2> outfiles/o8.err0&
+nohup taskset -c 16-17 matlab -r "shot_noise_budget('10', '0', '0', '1', './results/', '')" < /dev/null > outfiles/o9.out0 2> outfiles/o9.err0&
+nohup taskset -c 18-19 matlab -r "shot_noise_budget('10', '0', '0', '2', './results/', '')" < /dev/null > outfiles/o10.out0 2> outfiles/o10.err0&
+nohup taskset -c 20-21 matlab -r "shot_noise_budget('10', '0', '0', '3', './results/', '')" < /dev/null > outfiles/o11.out0 2> outfiles/o11.err0&
+nohup taskset -c 22-23 matlab -r "shot_noise_budget('12', '0', '0', '1', './results/', '')" < /dev/null > outfiles/o12.out0 2> outfiles/o12.err0&
+nohup taskset -c 24-25 matlab -r "shot_noise_budget('12', '0', '0', '2', './results/', '')" < /dev/null > outfiles/o13.out0 2> outfiles/o13.err0&
+nohup taskset -c 26-27  matlab -r "shot_noise_budget('12', '0', '0', '3', './results/', '')" < /dev/null > outfiles/o14.out0 2> outfiles/o14.err0&

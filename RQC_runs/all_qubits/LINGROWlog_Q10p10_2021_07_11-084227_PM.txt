@@ -1,0 +1,36 @@
+ZNE FAIL AT:
+tag: _LinGrow, shot: 5000000 seed: 10
+ZNE FAIL AT:
+tag: _LinGrow, shot: 5000000 seed: 22
+ZNE FAIL AT:
+tag: _LinGrow, shot: 5000000 seed: 26
+CGVD FAIL AT:
+tag: _LinGrow, shot: 5000000, copy: 4, nlsp: 2, seed: 10
+CGVD FAIL AT:
+tag: _LinGrow, shot: 5000000, copy: 5, nlsp: 2, seed: 10
+CGVD FAIL AT:
+tag: _LinGrow, shot: 5000000, copy: 4, nlsp: 2, seed: 22
+CGVD FAIL AT:
+tag: _LinGrow, shot: 5000000, copy: 5, nlsp: 2, seed: 22
+CGVD FAIL AT:
+tag: _LinGrow, shot: 5000000, copy: 4, nlsp: 2, seed: 26
+CGVD FAIL AT:
+tag: _LinGrow, shot: 5000000, copy: 5, nlsp: 2, seed: 26
+vnCDR FAIL AT:
+tag: _LinGrow, shot: 5000000, copy: 4, nlsp: NA, seed: 10
+vnCDR FAIL AT:
+tag: _LinGrow, shot: 5000000, copy: 5, nlsp: NA, seed: 10
+vnCDR FAIL AT:
+tag: _LinGrow, shot: 5000000, copy: 4, nlsp: NA, seed: 22
+vnCDR FAIL AT:
+tag: _LinGrow, shot: 5000000, copy: 5, nlsp: NA, seed: 22
+vnCDR FAIL AT:
+tag: _LinGrow, shot: 5000000, copy: 4, nlsp: NA, seed: 26
+vnCDR FAIL AT:
+tag: _LinGrow, shot: 5000000, copy: 5, nlsp: NA, seed: 26
+CDR FAIL AT:
+tag: _LinGrow, shot: 5000000, copy: 4, nlsp: 2, seed: 10
+CDR FAIL AT:
+tag: _LinGrow, shot: 5000000, copy: 4, nlsp: 2, seed: 22
+CDR FAIL AT:
+tag: _LinGrow, shot: 5000000, copy: 4, nlsp: 2, seed: 26

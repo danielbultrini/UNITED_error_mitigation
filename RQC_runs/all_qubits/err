@@ -1,0 +1,2570 @@
++ set -e
++ echo Checking:
++ pwd
++ hostname
++ date
++ env
++ sort
++ echo Starting:
++ module load matlab
+++ /usr/bin/modulecmd bash load matlab
++ eval LOADEDMODULES=matlab/R2019b ';export' 'LOADEDMODULES;PATH=/projects/opt/matlab/R2019b/bin:/projects/opt/centos7/anaconda3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/ibutils/bin:/home/pczarnik/.local/bin:/home/pczarnik/bin' ';export' 'PATH;_LMFILES_=/projects/darwin/modulefiles/centos7/matlab/R2019b' ';export' '_LMFILES_;'
+++ LOADEDMODULES=matlab/R2019b
+++ export LOADEDMODULES
+++ PATH=/projects/opt/matlab/R2019b/bin:/projects/opt/centos7/anaconda3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/ibutils/bin:/home/pczarnik/.local/bin:/home/pczarnik/bin
+++ export PATH
+++ _LMFILES_=/projects/darwin/modulefiles/centos7/matlab/R2019b
+++ export _LMFILES_
++ source activate base
+++ _CONDA_ROOT=/projects/opt/centos7/anaconda3
+++ . /projects/opt/centos7/anaconda3/etc/profile.d/conda.sh
++++ _CONDA_EXE=/projects/opt/centos7/anaconda3/bin/conda
++++ _CONDA_ROOT=/projects/opt/centos7/anaconda3
++++ _conda_set_vars
++++ '[' -n x ']'
++++ _CONDA_SHELL_FLAVOR=bash
++++ '[' -z x ']'
++++ '[' -z '' ']'
++++ PS1=
++++ '[' -z x ']'
+++ _conda_activate base
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1=
++++ /projects/opt/centos7/anaconda3/bin/conda shell.posix activate base
+++ ask_conda='\. "/projects/opt/centos7/anaconda3/etc/conda/deactivate.d/deactivate-gxx_linux-64.sh"
+\. "/projects/opt/centos7/anaconda3/etc/conda/deactivate.d/deactivate-gcc_linux-64.sh"
+\. "/projects/opt/centos7/anaconda3/etc/conda/deactivate.d/deactivate-binutils_linux-64.sh"
+PS1='\''(base) '\''
+\export CONDA_PROMPT_MODIFIER='\''(base) '\''
+\export CONDA_SHLVL='\''1'\''
+\export PATH='\''/projects/opt/matlab/R2019b/bin:/projects/opt/centos7/anaconda3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/ibutils/bin:/home/pczarnik/.local/bin:/home/pczarnik/bin'\''
+\. "/projects/opt/centos7/anaconda3/etc/conda/activate.d/activate-binutils_linux-64.sh"
+\. "/projects/opt/centos7/anaconda3/etc/conda/activate.d/activate-gcc_linux-64.sh"
+\. "/projects/opt/centos7/anaconda3/etc/conda/activate.d/activate-gxx_linux-64.sh"'
+++ eval '\. "/projects/opt/centos7/anaconda3/etc/conda/deactivate.d/deactivate-gxx_linux-64.sh"
+\. "/projects/opt/centos7/anaconda3/etc/conda/deactivate.d/deactivate-gcc_linux-64.sh"
+\. "/projects/opt/centos7/anaconda3/etc/conda/deactivate.d/deactivate-binutils_linux-64.sh"
+PS1='\''(base) '\''
+\export CONDA_PROMPT_MODIFIER='\''(base) '\''
+\export CONDA_SHLVL='\''1'\''
+\export PATH='\''/projects/opt/matlab/R2019b/bin:/projects/opt/centos7/anaconda3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/ibutils/bin:/home/pczarnik/.local/bin:/home/pczarnik/bin'\''
+\. "/projects/opt/centos7/anaconda3/etc/conda/activate.d/activate-binutils_linux-64.sh"
+\. "/projects/opt/centos7/anaconda3/etc/conda/activate.d/activate-gcc_linux-64.sh"
+\. "/projects/opt/centos7/anaconda3/etc/conda/activate.d/activate-gxx_linux-64.sh"'
++++ . /projects/opt/centos7/anaconda3/etc/conda/deactivate.d/deactivate-gxx_linux-64.sh
+++++ '[' 0 = 1 ']'
+++++ CXXFLAGS_USED='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
+++++ DEBUG_CXXFLAGS_USED='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
+++++ '[' 0 = 1 ']'
+++++ _tc_activation deactivate host x86_64-conda_cos6-linux-gnu x86_64-conda_cos6-linux-gnu- c++ g++ 'CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe' 'DEBUG_CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
+++++ local act_nature=deactivate
+++++ shift
+++++ local tc_nature=host
+++++ shift
+++++ local tc_machine=x86_64-conda_cos6-linux-gnu
+++++ shift
+++++ local tc_prefix=x86_64-conda_cos6-linux-gnu-
+++++ shift
+++++ local thing
+++++ local newval
+++++ local from
+++++ local to
+++++ local pass
+++++ '[' deactivate = activate ']'
+++++ from=CONDA_BACKUP_
+++++ to=
+++++ for pass in check apply
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval=x86_64-conda_cos6-linux-gnu
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
++++++ echo host,x86_64-conda_cos6-linux-gnu
+++++ thing=host
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++ -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++ -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
++++++ echo 'CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
+++++ newval='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ echo 'CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=CXXFLAGS
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'DEBUG_CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ echo 'DEBUG_CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=DEBUG_CXXFLAGS
+++++ '[' check = apply ']'
+++++ for pass in check apply
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
++++++ echo host,x86_64-conda_cos6-linux-gnu
+++++ newval=x86_64-conda_cos6-linux-gnu
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=host
+++++ '[' apply = apply ']'
++++++ echo host
++++++ tr a-z+- A-ZX_
+++++ thing=HOST
+++++ eval 'oldval=$CONDA_BACKUP_HOST'
++++++ oldval=x86_64-conda_cos6-linux-gnu
+++++ '[' -n x86_64-conda_cos6-linux-gnu ']'
+++++ eval export ''\''HOST'\''="x86_64-conda_cos6-linux-gnu"'
++++++ export HOST=x86_64-conda_cos6-linux-gnu
++++++ HOST=x86_64-conda_cos6-linux-gnu
+++++ '[' -n x86_64-conda_cos6-linux-gnu ']'
+++++ eval export ''\''CONDA_BACKUP_HOST=x86_64-conda_cos6-linux-gnu'\'''
++++++ export CONDA_BACKUP_HOST=x86_64-conda_cos6-linux-gnu
++++++ CONDA_BACKUP_HOST=x86_64-conda_cos6-linux-gnu
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++ -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo c++
++++++ tr a-z+- A-ZX_
+++++ thing=CXX
+++++ eval 'oldval=$CONDA_BACKUP_CXX'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CXX
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++ ']'
+++++ eval export ''\''CONDA_BACKUP_CXX=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++'\'''
++++++ export CONDA_BACKUP_CXX=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++
++++++ CONDA_BACKUP_CXX=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++ -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ tr a-z+- A-ZX_
++++++ echo g++
+++++ thing=GXX
+++++ eval 'oldval=$CONDA_BACKUP_GXX'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset GXX
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++ ']'
+++++ eval export ''\''CONDA_BACKUP_GXX=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++'\'''
++++++ export CONDA_BACKUP_GXX=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++
++++++ CONDA_BACKUP_GXX=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ echo 'CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=CXXFLAGS
+++++ '[' apply = apply ']'
++++++ echo CXXFLAGS
++++++ tr a-z+- A-ZX_
+++++ thing=CXXFLAGS
+++++ eval 'oldval=$CONDA_BACKUP_CXXFLAGS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CXXFLAGS
+++++ '[' -n '-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe' ']'
+++++ eval export ''\''CONDA_BACKUP_CXXFLAGS=-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'\'''
++++++ export 'CONDA_BACKUP_CXXFLAGS=-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ CONDA_BACKUP_CXXFLAGS='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'DEBUG_CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ echo 'DEBUG_CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=DEBUG_CXXFLAGS
+++++ '[' apply = apply ']'
++++++ tr a-z+- A-ZX_
++++++ echo DEBUG_CXXFLAGS
+++++ thing=DEBUG_CXXFLAGS
+++++ eval 'oldval=$CONDA_BACKUP_DEBUG_CXXFLAGS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset DEBUG_CXXFLAGS
+++++ '[' -n '-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe' ']'
+++++ eval export ''\''CONDA_BACKUP_DEBUG_CXXFLAGS=-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'\'''
++++++ export 'CONDA_BACKUP_DEBUG_CXXFLAGS=-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ CONDA_BACKUP_DEBUG_CXXFLAGS='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
+++++ return 0
+++++ '[' 0 -ne 0 ']'
+++++ '[' 0 = 1 ']'
++++ . /projects/opt/centos7/anaconda3/etc/conda/deactivate.d/deactivate-gcc_linux-64.sh
+++++ '[' 0 = 1 ']'
+++++ CFLAGS_USED='-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
+++++ DEBUG_CFLAGS_USED='-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
+++++ CPPFLAGS_USED='-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
+++++ DEBUG_CPPFLAGS_USED='-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
+++++ LDFLAGS_USED='-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
+++++ '[' 0 = 1 ']'
+++++ _tc_activation deactivate host x86_64-conda_cos6-linux-gnu x86_64-conda_cos6-linux-gnu- cc cpp gcc gcc-ar gcc-nm gcc-ranlib 'CPPFLAGS,-DNDEBUG -D_FORTIFY_SOURCE=2 -O2' 'CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe' 'LDFLAGS,-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections' 'DEBUG_CPPFLAGS,-D_DEBUG -D_FORTIFY_SOURCE=2 -Og' 'DEBUG_CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe' CMAKE_PREFIX_PATH, _CONDA_PYTHON_SYSCONFIGDATA_NAME,
+++++ local act_nature=deactivate
+++++ shift
+++++ local tc_nature=host
+++++ shift
+++++ local tc_machine=x86_64-conda_cos6-linux-gnu
+++++ shift
+++++ local tc_prefix=x86_64-conda_cos6-linux-gnu-
+++++ shift
+++++ local thing
+++++ local newval
+++++ local from
+++++ local to
+++++ local pass
+++++ '[' deactivate = activate ']'
+++++ from=CONDA_BACKUP_
+++++ to=
+++++ for pass in check apply
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval=x86_64-conda_cos6-linux-gnu
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=host
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cc
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cc -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cpp
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cpp -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ar
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ar -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-nm
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-nm -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ranlib
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ranlib -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
++++++ echo 'CPPFLAGS,-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
+++++ newval='-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
++++++ echo 'CPPFLAGS,-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
+++++ thing=CPPFLAGS
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
++++++ echo 'CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
+++++ newval='-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
++++++ echo 'CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
+++++ thing=CFLAGS
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'LDFLAGS,-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
++++++ echo 'LDFLAGS,-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=LDFLAGS
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
++++++ echo 'DEBUG_CPPFLAGS,-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
+++++ newval='-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
++++++ echo 'DEBUG_CPPFLAGS,-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
+++++ thing=DEBUG_CPPFLAGS
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'DEBUG_CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ echo 'DEBUG_CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=DEBUG_CFLAGS
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
++++++ echo CMAKE_PREFIX_PATH,
+++++ newval=
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
++++++ echo CMAKE_PREFIX_PATH,
+++++ thing=CMAKE_PREFIX_PATH
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo _CONDA_PYTHON_SYSCONFIGDATA_NAME,
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval=
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
++++++ echo _CONDA_PYTHON_SYSCONFIGDATA_NAME,
+++++ thing=_CONDA_PYTHON_SYSCONFIGDATA_NAME
+++++ '[' check = apply ']'
+++++ for pass in check apply
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
++++++ echo host,x86_64-conda_cos6-linux-gnu
+++++ newval=x86_64-conda_cos6-linux-gnu
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=host
+++++ '[' apply = apply ']'
++++++ echo host
++++++ tr a-z+- A-ZX_
+++++ thing=HOST
+++++ eval 'oldval=$CONDA_BACKUP_HOST'
++++++ oldval=x86_64-conda_cos6-linux-gnu
+++++ '[' -n x86_64-conda_cos6-linux-gnu ']'
+++++ eval export ''\''HOST'\''="x86_64-conda_cos6-linux-gnu"'
++++++ export HOST=x86_64-conda_cos6-linux-gnu
++++++ HOST=x86_64-conda_cos6-linux-gnu
+++++ '[' -n x86_64-conda_cos6-linux-gnu ']'
+++++ eval export ''\''CONDA_BACKUP_HOST=x86_64-conda_cos6-linux-gnu'\'''
++++++ export CONDA_BACKUP_HOST=x86_64-conda_cos6-linux-gnu
++++++ CONDA_BACKUP_HOST=x86_64-conda_cos6-linux-gnu
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cc
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cc -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ tr a-z+- A-ZX_
++++++ echo cc
+++++ thing=CC
+++++ eval 'oldval=$CONDA_BACKUP_CC'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CC
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cc ']'
+++++ eval export ''\''CONDA_BACKUP_CC=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cc'\'''
++++++ export CONDA_BACKUP_CC=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cc
++++++ CONDA_BACKUP_CC=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cc
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cpp
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cpp -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ tr a-z+- A-ZX_
++++++ echo cpp
+++++ thing=CPP
+++++ eval 'oldval=$CONDA_BACKUP_CPP'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CPP
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cpp ']'
+++++ eval export ''\''CONDA_BACKUP_CPP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cpp'\'''
++++++ export CONDA_BACKUP_CPP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cpp
++++++ CONDA_BACKUP_CPP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cpp
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo gcc
++++++ tr a-z+- A-ZX_
+++++ thing=GCC
+++++ eval 'oldval=$CONDA_BACKUP_GCC'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset GCC
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc ']'
+++++ eval export ''\''CONDA_BACKUP_GCC=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc'\'''
++++++ export CONDA_BACKUP_GCC=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc
++++++ CONDA_BACKUP_GCC=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ar
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ar -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ tr a-z+- A-ZX_
++++++ echo gcc-ar
+++++ thing=GCC_AR
+++++ eval 'oldval=$CONDA_BACKUP_GCC_AR'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset GCC_AR
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ar ']'
+++++ eval export ''\''CONDA_BACKUP_GCC_AR=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ar'\'''
++++++ export CONDA_BACKUP_GCC_AR=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ar
++++++ CONDA_BACKUP_GCC_AR=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ar
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-nm
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-nm -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo gcc-nm
++++++ tr a-z+- A-ZX_
+++++ thing=GCC_NM
+++++ eval 'oldval=$CONDA_BACKUP_GCC_NM'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset GCC_NM
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-nm ']'
+++++ eval export ''\''CONDA_BACKUP_GCC_NM=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-nm'\'''
++++++ export CONDA_BACKUP_GCC_NM=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-nm
++++++ CONDA_BACKUP_GCC_NM=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-nm
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ranlib
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ranlib -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ tr a-z+- A-ZX_
++++++ echo gcc-ranlib
+++++ thing=GCC_RANLIB
+++++ eval 'oldval=$CONDA_BACKUP_GCC_RANLIB'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset GCC_RANLIB
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ranlib ']'
+++++ eval export ''\''CONDA_BACKUP_GCC_RANLIB=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ranlib'\'''
++++++ export CONDA_BACKUP_GCC_RANLIB=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ranlib
++++++ CONDA_BACKUP_GCC_RANLIB=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ranlib
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'CPPFLAGS,-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
++++++ echo 'CPPFLAGS,-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=CPPFLAGS
+++++ '[' apply = apply ']'
++++++ echo CPPFLAGS
++++++ tr a-z+- A-ZX_
+++++ thing=CPPFLAGS
+++++ eval 'oldval=$CONDA_BACKUP_CPPFLAGS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CPPFLAGS
+++++ '[' -n '-DNDEBUG -D_FORTIFY_SOURCE=2 -O2' ']'
+++++ eval export ''\''CONDA_BACKUP_CPPFLAGS=-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'\'''
++++++ export 'CONDA_BACKUP_CPPFLAGS=-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
++++++ CONDA_BACKUP_CPPFLAGS='-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ echo 'CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=CFLAGS
+++++ '[' apply = apply ']'
++++++ echo CFLAGS
++++++ tr a-z+- A-ZX_
+++++ thing=CFLAGS
+++++ eval 'oldval=$CONDA_BACKUP_CFLAGS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CFLAGS
+++++ '[' -n '-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe' ']'
+++++ eval export ''\''CONDA_BACKUP_CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'\'''
++++++ export 'CONDA_BACKUP_CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ CONDA_BACKUP_CFLAGS='-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
++++++ echo 'LDFLAGS,-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
+++++ newval='-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
++++++ echo 'LDFLAGS,-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=LDFLAGS
+++++ '[' apply = apply ']'
++++++ tr a-z+- A-ZX_
++++++ echo LDFLAGS
+++++ thing=LDFLAGS
+++++ eval 'oldval=$CONDA_BACKUP_LDFLAGS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset LDFLAGS
+++++ '[' -n '-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections' ']'
+++++ eval export ''\''CONDA_BACKUP_LDFLAGS=-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'\'''
++++++ export 'CONDA_BACKUP_LDFLAGS=-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
++++++ CONDA_BACKUP_LDFLAGS='-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
++++++ echo 'DEBUG_CPPFLAGS,-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
+++++ newval='-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
++++++ echo 'DEBUG_CPPFLAGS,-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=DEBUG_CPPFLAGS
+++++ '[' apply = apply ']'
++++++ tr a-z+- A-ZX_
++++++ echo DEBUG_CPPFLAGS
+++++ thing=DEBUG_CPPFLAGS
+++++ eval 'oldval=$CONDA_BACKUP_DEBUG_CPPFLAGS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset DEBUG_CPPFLAGS
+++++ '[' -n '-D_DEBUG -D_FORTIFY_SOURCE=2 -Og' ']'
+++++ eval export ''\''CONDA_BACKUP_DEBUG_CPPFLAGS=-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'\'''
++++++ export 'CONDA_BACKUP_DEBUG_CPPFLAGS=-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
++++++ CONDA_BACKUP_DEBUG_CPPFLAGS='-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'DEBUG_CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ echo 'DEBUG_CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=DEBUG_CFLAGS
+++++ '[' apply = apply ']'
++++++ echo DEBUG_CFLAGS
++++++ tr a-z+- A-ZX_
+++++ thing=DEBUG_CFLAGS
+++++ eval 'oldval=$CONDA_BACKUP_DEBUG_CFLAGS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset DEBUG_CFLAGS
+++++ '[' -n '-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe' ']'
+++++ eval export ''\''CONDA_BACKUP_DEBUG_CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'\'''
++++++ export 'CONDA_BACKUP_DEBUG_CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ CONDA_BACKUP_DEBUG_CFLAGS='-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo CMAKE_PREFIX_PATH,
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval=
++++++ echo CMAKE_PREFIX_PATH,
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=CMAKE_PREFIX_PATH
+++++ '[' apply = apply ']'
++++++ echo CMAKE_PREFIX_PATH
++++++ tr a-z+- A-ZX_
+++++ thing=CMAKE_PREFIX_PATH
+++++ eval 'oldval=$CONDA_BACKUP_CMAKE_PREFIX_PATH'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CMAKE_PREFIX_PATH
+++++ '[' -n '' ']'
+++++ eval unset '${from}${thing}'
++++++ unset CONDA_BACKUP_CMAKE_PREFIX_PATH
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
++++++ echo _CONDA_PYTHON_SYSCONFIGDATA_NAME,
+++++ newval=
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
++++++ echo _CONDA_PYTHON_SYSCONFIGDATA_NAME,
+++++ thing=_CONDA_PYTHON_SYSCONFIGDATA_NAME
+++++ '[' apply = apply ']'
++++++ tr a-z+- A-ZX_
++++++ echo _CONDA_PYTHON_SYSCONFIGDATA_NAME
+++++ thing=_CONDA_PYTHON_SYSCONFIGDATA_NAME
+++++ eval 'oldval=$CONDA_BACKUP__CONDA_PYTHON_SYSCONFIGDATA_NAME'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset _CONDA_PYTHON_SYSCONFIGDATA_NAME
+++++ '[' -n '' ']'
+++++ eval unset '${from}${thing}'
++++++ unset CONDA_BACKUP__CONDA_PYTHON_SYSCONFIGDATA_NAME
+++++ return 0
+++++ '[' 0 -ne 0 ']'
+++++ '[' 0 = 1 ']'
++++ . /projects/opt/centos7/anaconda3/etc/conda/deactivate.d/deactivate-binutils_linux-64.sh
+++++ '[' 0 = 1 ']'
+++++ echo x86_64-conda_cos6-linux-gnu
+++++ grep powerpc
+++++ GOLD_USED=ld.gold
+++++ _tc_activation deactivate host x86_64-conda_cos6-linux-gnu x86_64-conda_cos6-linux-gnu- addr2line ar as c++filt elfedit gprof ld ld.gold nm objcopy objdump ranlib readelf size strings strip
+++++ local act_nature=deactivate
+++++ shift
+++++ local tc_nature=host
+++++ shift
+++++ local tc_machine=x86_64-conda_cos6-linux-gnu
+++++ shift
+++++ local tc_prefix=x86_64-conda_cos6-linux-gnu-
+++++ shift
+++++ local thing
+++++ local newval
+++++ local from
+++++ local to
+++++ local pass
+++++ '[' deactivate = activate ']'
+++++ from=CONDA_BACKUP_
+++++ to=
+++++ for pass in check apply
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval=x86_64-conda_cos6-linux-gnu
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=host
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-addr2line
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-addr2line -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ar
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ar -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-as
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-as -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++filt
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++filt -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-elfedit
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-elfedit -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gprof
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gprof -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld.gold
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld.gold -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-nm
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-nm -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objcopy
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objcopy -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objdump
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objdump -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ranlib
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ranlib -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-readelf
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-readelf -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-size
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-size -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strings
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strings -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strip
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strip -a check = check ']'
+++++ '[' check = apply ']'
+++++ for pass in check apply
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval=x86_64-conda_cos6-linux-gnu
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=host
+++++ '[' apply = apply ']'
++++++ echo host
++++++ tr a-z+-. A-ZX__
+++++ thing=HOST
+++++ eval 'oldval=$CONDA_BACKUP_HOST'
++++++ oldval=x86_64-conda_cos6-linux-gnu
+++++ '[' -n x86_64-conda_cos6-linux-gnu ']'
+++++ eval export ''\''HOST'\''="x86_64-conda_cos6-linux-gnu"'
++++++ export HOST=x86_64-conda_cos6-linux-gnu
++++++ HOST=x86_64-conda_cos6-linux-gnu
+++++ '[' -n x86_64-conda_cos6-linux-gnu ']'
+++++ eval export ''\''CONDA_BACKUP_HOST=x86_64-conda_cos6-linux-gnu'\'''
++++++ export CONDA_BACKUP_HOST=x86_64-conda_cos6-linux-gnu
++++++ CONDA_BACKUP_HOST=x86_64-conda_cos6-linux-gnu
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-addr2line
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-addr2line -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo addr2line
++++++ tr a-z+-. A-ZX__
+++++ thing=ADDR2LINE
+++++ eval 'oldval=$CONDA_BACKUP_ADDR2LINE'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset ADDR2LINE
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-addr2line ']'
+++++ eval export ''\''CONDA_BACKUP_ADDR2LINE=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-addr2line'\'''
++++++ export CONDA_BACKUP_ADDR2LINE=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-addr2line
++++++ CONDA_BACKUP_ADDR2LINE=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-addr2line
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ar
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ar -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo ar
++++++ tr a-z+-. A-ZX__
+++++ thing=AR
+++++ eval 'oldval=$CONDA_BACKUP_AR'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset AR
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ar ']'
+++++ eval export ''\''CONDA_BACKUP_AR=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ar'\'''
++++++ export CONDA_BACKUP_AR=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ar
++++++ CONDA_BACKUP_AR=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ar
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-as
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-as -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo as
++++++ tr a-z+-. A-ZX__
+++++ thing=AS
+++++ eval 'oldval=$CONDA_BACKUP_AS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset AS
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-as ']'
+++++ eval export ''\''CONDA_BACKUP_AS=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-as'\'''
++++++ export CONDA_BACKUP_AS=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-as
++++++ CONDA_BACKUP_AS=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-as
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++filt
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++filt -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ tr a-z+-. A-ZX__
++++++ echo c++filt
+++++ thing=CXXFILT
+++++ eval 'oldval=$CONDA_BACKUP_CXXFILT'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CXXFILT
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++filt ']'
+++++ eval export ''\''CONDA_BACKUP_CXXFILT=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++filt'\'''
++++++ export CONDA_BACKUP_CXXFILT=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++filt
++++++ CONDA_BACKUP_CXXFILT=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++filt
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-elfedit
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-elfedit -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo elfedit
++++++ tr a-z+-. A-ZX__
+++++ thing=ELFEDIT
+++++ eval 'oldval=$CONDA_BACKUP_ELFEDIT'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset ELFEDIT
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-elfedit ']'
+++++ eval export ''\''CONDA_BACKUP_ELFEDIT=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-elfedit'\'''
++++++ export CONDA_BACKUP_ELFEDIT=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-elfedit
++++++ CONDA_BACKUP_ELFEDIT=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-elfedit
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gprof
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gprof -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo gprof
++++++ tr a-z+-. A-ZX__
+++++ thing=GPROF
+++++ eval 'oldval=$CONDA_BACKUP_GPROF'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset GPROF
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gprof ']'
+++++ eval export ''\''CONDA_BACKUP_GPROF=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gprof'\'''
++++++ export CONDA_BACKUP_GPROF=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gprof
++++++ CONDA_BACKUP_GPROF=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gprof
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo ld
++++++ tr a-z+-. A-ZX__
+++++ thing=LD
+++++ eval 'oldval=$CONDA_BACKUP_LD'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset LD
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld ']'
+++++ eval export ''\''CONDA_BACKUP_LD=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld'\'''
++++++ export CONDA_BACKUP_LD=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld
++++++ CONDA_BACKUP_LD=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld.gold
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld.gold -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo ld.gold
++++++ tr a-z+-. A-ZX__
+++++ thing=LD_GOLD
+++++ eval 'oldval=$CONDA_BACKUP_LD_GOLD'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset LD_GOLD
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld.gold ']'
+++++ eval export ''\''CONDA_BACKUP_LD_GOLD=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld.gold'\'''
++++++ export CONDA_BACKUP_LD_GOLD=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld.gold
++++++ CONDA_BACKUP_LD_GOLD=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld.gold
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-nm
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-nm -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo nm
++++++ tr a-z+-. A-ZX__
+++++ thing=NM
+++++ eval 'oldval=$CONDA_BACKUP_NM'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset NM
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-nm ']'
+++++ eval export ''\''CONDA_BACKUP_NM=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-nm'\'''
++++++ export CONDA_BACKUP_NM=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-nm
++++++ CONDA_BACKUP_NM=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-nm
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objcopy
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objcopy -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo objcopy
++++++ tr a-z+-. A-ZX__
+++++ thing=OBJCOPY
+++++ eval 'oldval=$CONDA_BACKUP_OBJCOPY'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset OBJCOPY
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objcopy ']'
+++++ eval export ''\''CONDA_BACKUP_OBJCOPY=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objcopy'\'''
++++++ export CONDA_BACKUP_OBJCOPY=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objcopy
++++++ CONDA_BACKUP_OBJCOPY=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objcopy
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objdump
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objdump -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo objdump
++++++ tr a-z+-. A-ZX__
+++++ thing=OBJDUMP
+++++ eval 'oldval=$CONDA_BACKUP_OBJDUMP'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset OBJDUMP
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objdump ']'
+++++ eval export ''\''CONDA_BACKUP_OBJDUMP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objdump'\'''
++++++ export CONDA_BACKUP_OBJDUMP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objdump
++++++ CONDA_BACKUP_OBJDUMP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objdump
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ranlib
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ranlib -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo ranlib
++++++ tr a-z+-. A-ZX__
+++++ thing=RANLIB
+++++ eval 'oldval=$CONDA_BACKUP_RANLIB'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset RANLIB
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ranlib ']'
+++++ eval export ''\''CONDA_BACKUP_RANLIB=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ranlib'\'''
++++++ export CONDA_BACKUP_RANLIB=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ranlib
++++++ CONDA_BACKUP_RANLIB=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ranlib
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-readelf
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-readelf -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ tr a-z+-. A-ZX__
++++++ echo readelf
+++++ thing=READELF
+++++ eval 'oldval=$CONDA_BACKUP_READELF'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset READELF
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-readelf ']'
+++++ eval export ''\''CONDA_BACKUP_READELF=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-readelf'\'''
++++++ export CONDA_BACKUP_READELF=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-readelf
++++++ CONDA_BACKUP_READELF=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-readelf
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-size
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-size -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ tr a-z+-. A-ZX__
++++++ echo size
+++++ thing=SIZE
+++++ eval 'oldval=$CONDA_BACKUP_SIZE'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset SIZE
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-size ']'
+++++ eval export ''\''CONDA_BACKUP_SIZE=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-size'\'''
++++++ export CONDA_BACKUP_SIZE=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-size
++++++ CONDA_BACKUP_SIZE=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-size
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strings
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strings -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ tr a-z+-. A-ZX__
++++++ echo strings
+++++ thing=STRINGS
+++++ eval 'oldval=$CONDA_BACKUP_STRINGS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset STRINGS
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strings ']'
+++++ eval export ''\''CONDA_BACKUP_STRINGS=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strings'\'''
++++++ export CONDA_BACKUP_STRINGS=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strings
++++++ CONDA_BACKUP_STRINGS=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strings
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strip
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strip -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo strip
++++++ tr a-z+-. A-ZX__
+++++ thing=STRIP
+++++ eval 'oldval=$CONDA_BACKUP_STRIP'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset STRIP
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strip ']'
+++++ eval export ''\''CONDA_BACKUP_STRIP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strip'\'''
++++++ export CONDA_BACKUP_STRIP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strip
++++++ CONDA_BACKUP_STRIP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strip
+++++ return 0
+++++ '[' 0 -ne 0 ']'
+++++ '[' 0 = 1 ']'
++++ PS1='(base) '
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export PATH=/projects/opt/matlab/R2019b/bin:/projects/opt/centos7/anaconda3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/ibutils/bin:/home/pczarnik/.local/bin:/home/pczarnik/bin
++++ PATH=/projects/opt/matlab/R2019b/bin:/projects/opt/centos7/anaconda3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/ibutils/bin:/home/pczarnik/.local/bin:/home/pczarnik/bin
++++ . /projects/opt/centos7/anaconda3/etc/conda/activate.d/activate-binutils_linux-64.sh
+++++ '[' 0 = 1 ']'
+++++ echo x86_64-conda_cos6-linux-gnu
+++++ grep powerpc
+++++ GOLD_USED=ld.gold
+++++ _tc_activation activate host x86_64-conda_cos6-linux-gnu x86_64-conda_cos6-linux-gnu- addr2line ar as c++filt elfedit gprof ld ld.gold nm objcopy objdump ranlib readelf size strings strip
+++++ local act_nature=activate
+++++ shift
+++++ local tc_nature=host
+++++ shift
+++++ local tc_machine=x86_64-conda_cos6-linux-gnu
+++++ shift
+++++ local tc_prefix=x86_64-conda_cos6-linux-gnu-
+++++ shift
+++++ local thing
+++++ local newval
+++++ local from
+++++ local to
+++++ local pass
+++++ '[' activate = activate ']'
+++++ from=
+++++ to=CONDA_BACKUP_
+++++ for pass in check apply
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval=x86_64-conda_cos6-linux-gnu
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=host
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-addr2line
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-addr2line -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ar
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ar -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-as
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-as -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++filt
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++filt -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-elfedit
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-elfedit -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gprof
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gprof -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld.gold
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld.gold -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-nm
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-nm -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objcopy
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objcopy -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objdump
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objdump -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ranlib
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ranlib -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-readelf
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-readelf -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-size
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-size -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strings
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strings -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strip
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strip -a check = check ']'
+++++ '[' check = apply ']'
+++++ for pass in check apply
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval=x86_64-conda_cos6-linux-gnu
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=host
+++++ '[' apply = apply ']'
++++++ echo host
++++++ tr a-z+-. A-ZX__
+++++ thing=HOST
+++++ eval 'oldval=$HOST'
++++++ oldval=x86_64-conda_cos6-linux-gnu
+++++ '[' -n x86_64-conda_cos6-linux-gnu ']'
+++++ eval export 'CONDA_BACKUP_'\''HOST'\''="x86_64-conda_cos6-linux-gnu"'
++++++ export CONDA_BACKUP_HOST=x86_64-conda_cos6-linux-gnu
++++++ CONDA_BACKUP_HOST=x86_64-conda_cos6-linux-gnu
+++++ '[' -n x86_64-conda_cos6-linux-gnu ']'
+++++ eval export ''\''HOST=x86_64-conda_cos6-linux-gnu'\'''
++++++ export HOST=x86_64-conda_cos6-linux-gnu
++++++ HOST=x86_64-conda_cos6-linux-gnu
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-addr2line
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-addr2line -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo addr2line
++++++ tr a-z+-. A-ZX__
+++++ thing=ADDR2LINE
+++++ eval 'oldval=$ADDR2LINE'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_ADDR2LINE
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-addr2line ']'
+++++ eval export ''\''ADDR2LINE=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-addr2line'\'''
++++++ export ADDR2LINE=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-addr2line
++++++ ADDR2LINE=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-addr2line
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ar
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ar -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo ar
++++++ tr a-z+-. A-ZX__
+++++ thing=AR
+++++ eval 'oldval=$AR'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_AR
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ar ']'
+++++ eval export ''\''AR=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ar'\'''
++++++ export AR=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ar
++++++ AR=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ar
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-as
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-as -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo as
++++++ tr a-z+-. A-ZX__
+++++ thing=AS
+++++ eval 'oldval=$AS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_AS
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-as ']'
+++++ eval export ''\''AS=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-as'\'''
++++++ export AS=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-as
++++++ AS=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-as
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++filt
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++filt -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo c++filt
++++++ tr a-z+-. A-ZX__
+++++ thing=CXXFILT
+++++ eval 'oldval=$CXXFILT'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_CXXFILT
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++filt ']'
+++++ eval export ''\''CXXFILT=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++filt'\'''
++++++ export CXXFILT=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++filt
++++++ CXXFILT=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++filt
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-elfedit
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-elfedit -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo elfedit
++++++ tr a-z+-. A-ZX__
+++++ thing=ELFEDIT
+++++ eval 'oldval=$ELFEDIT'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_ELFEDIT
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-elfedit ']'
+++++ eval export ''\''ELFEDIT=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-elfedit'\'''
++++++ export ELFEDIT=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-elfedit
++++++ ELFEDIT=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-elfedit
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gprof
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gprof -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo gprof
++++++ tr a-z+-. A-ZX__
+++++ thing=GPROF
+++++ eval 'oldval=$GPROF'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_GPROF
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gprof ']'
+++++ eval export ''\''GPROF=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gprof'\'''
++++++ export GPROF=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gprof
++++++ GPROF=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gprof
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo ld
++++++ tr a-z+-. A-ZX__
+++++ thing=LD
+++++ eval 'oldval=$LD'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_LD
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld ']'
+++++ eval export ''\''LD=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld'\'''
++++++ export LD=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld
++++++ LD=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld.gold
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld.gold -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo ld.gold
++++++ tr a-z+-. A-ZX__
+++++ thing=LD_GOLD
+++++ eval 'oldval=$LD_GOLD'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_LD_GOLD
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld.gold ']'
+++++ eval export ''\''LD_GOLD=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld.gold'\'''
++++++ export LD_GOLD=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld.gold
++++++ LD_GOLD=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ld.gold
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-nm
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-nm -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo nm
++++++ tr a-z+-. A-ZX__
+++++ thing=NM
+++++ eval 'oldval=$NM'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_NM
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-nm ']'
+++++ eval export ''\''NM=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-nm'\'''
++++++ export NM=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-nm
++++++ NM=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-nm
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objcopy
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objcopy -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo objcopy
++++++ tr a-z+-. A-ZX__
+++++ thing=OBJCOPY
+++++ eval 'oldval=$OBJCOPY'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_OBJCOPY
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objcopy ']'
+++++ eval export ''\''OBJCOPY=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objcopy'\'''
++++++ export OBJCOPY=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objcopy
++++++ OBJCOPY=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objcopy
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objdump
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objdump -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo objdump
++++++ tr a-z+-. A-ZX__
+++++ thing=OBJDUMP
+++++ eval 'oldval=$OBJDUMP'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_OBJDUMP
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objdump ']'
+++++ eval export ''\''OBJDUMP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objdump'\'''
++++++ export OBJDUMP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objdump
++++++ OBJDUMP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-objdump
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ranlib
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ranlib -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo ranlib
++++++ tr a-z+-. A-ZX__
+++++ thing=RANLIB
+++++ eval 'oldval=$RANLIB'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_RANLIB
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ranlib ']'
+++++ eval export ''\''RANLIB=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ranlib'\'''
++++++ export RANLIB=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ranlib
++++++ RANLIB=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-ranlib
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-readelf
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-readelf -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo readelf
++++++ tr a-z+-. A-ZX__
+++++ thing=READELF
+++++ eval 'oldval=$READELF'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_READELF
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-readelf ']'
+++++ eval export ''\''READELF=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-readelf'\'''
++++++ export READELF=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-readelf
++++++ READELF=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-readelf
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-size
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-size -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo size
++++++ tr a-z+-. A-ZX__
+++++ thing=SIZE
+++++ eval 'oldval=$SIZE'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_SIZE
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-size ']'
+++++ eval export ''\''SIZE=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-size'\'''
++++++ export SIZE=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-size
++++++ SIZE=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-size
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strings
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strings -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo strings
++++++ tr a-z+-. A-ZX__
+++++ thing=STRINGS
+++++ eval 'oldval=$STRINGS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_STRINGS
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strings ']'
+++++ eval export ''\''STRINGS=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strings'\'''
++++++ export STRINGS=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strings
++++++ STRINGS=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strings
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strip
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strip -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo strip
++++++ tr a-z+-. A-ZX__
+++++ thing=STRIP
+++++ eval 'oldval=$STRIP'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_STRIP
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strip ']'
+++++ eval export ''\''STRIP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strip'\'''
++++++ export STRIP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strip
++++++ STRIP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-strip
+++++ return 0
+++++ '[' 0 -ne 0 ']'
+++++ '[' 0 = 1 ']'
++++ . /projects/opt/centos7/anaconda3/etc/conda/activate.d/activate-gcc_linux-64.sh
+++++ '[' 0 = 1 ']'
+++++ CFLAGS_USED='-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
+++++ DEBUG_CFLAGS_USED='-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
+++++ CPPFLAGS_USED='-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
+++++ DEBUG_CPPFLAGS_USED='-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
+++++ LDFLAGS_USED='-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
+++++ '[' 0 = 1 ']'
+++++ _CONDA_PYTHON_SYSCONFIGDATA_NAME_USED=_sysconfigdata_x86_64_conda_cos6_linux_gnu
+++++ '[' -n _sysconfigdata_x86_64_conda_cos6_linux_gnu ']'
+++++ '[' -n '' ']'
+++++ _tc_activation activate host x86_64-conda_cos6-linux-gnu x86_64-conda_cos6-linux-gnu- cc cpp gcc gcc-ar gcc-nm gcc-ranlib 'CPPFLAGS,-DNDEBUG -D_FORTIFY_SOURCE=2 -O2' 'CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe' 'LDFLAGS,-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections' 'DEBUG_CPPFLAGS,-D_DEBUG -D_FORTIFY_SOURCE=2 -Og' 'DEBUG_CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe' CMAKE_PREFIX_PATH, _CONDA_PYTHON_SYSCONFIGDATA_NAME,_sysconfigdata_x86_64_conda_cos6_linux_gnu
+++++ local act_nature=activate
+++++ shift
+++++ local tc_nature=host
+++++ shift
+++++ local tc_machine=x86_64-conda_cos6-linux-gnu
+++++ shift
+++++ local tc_prefix=x86_64-conda_cos6-linux-gnu-
+++++ shift
+++++ local thing
+++++ local newval
+++++ local from
+++++ local to
+++++ local pass
+++++ '[' activate = activate ']'
+++++ from=
+++++ to=CONDA_BACKUP_
+++++ for pass in check apply
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval=x86_64-conda_cos6-linux-gnu
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=host
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cc
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cc -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cpp
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cpp -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ar
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ar -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-nm
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-nm -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ranlib
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ranlib -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'CPPFLAGS,-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
++++++ echo 'CPPFLAGS,-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=CPPFLAGS
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ echo 'CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=CFLAGS
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'LDFLAGS,-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
++++++ echo 'LDFLAGS,-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=LDFLAGS
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'DEBUG_CPPFLAGS,-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
++++++ echo 'DEBUG_CPPFLAGS,-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=DEBUG_CPPFLAGS
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'DEBUG_CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ echo 'DEBUG_CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=DEBUG_CFLAGS
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo CMAKE_PREFIX_PATH,
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval=
++++++ echo CMAKE_PREFIX_PATH,
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=CMAKE_PREFIX_PATH
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo _CONDA_PYTHON_SYSCONFIGDATA_NAME,_sysconfigdata_x86_64_conda_cos6_linux_gnu
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval=_sysconfigdata_x86_64_conda_cos6_linux_gnu
++++++ echo _CONDA_PYTHON_SYSCONFIGDATA_NAME,_sysconfigdata_x86_64_conda_cos6_linux_gnu
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=_CONDA_PYTHON_SYSCONFIGDATA_NAME
+++++ '[' check = apply ']'
+++++ for pass in check apply
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval=x86_64-conda_cos6-linux-gnu
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=host
+++++ '[' apply = apply ']'
++++++ echo host
++++++ tr a-z+- A-ZX_
+++++ thing=HOST
+++++ eval 'oldval=$HOST'
++++++ oldval=x86_64-conda_cos6-linux-gnu
+++++ '[' -n x86_64-conda_cos6-linux-gnu ']'
+++++ eval export 'CONDA_BACKUP_'\''HOST'\''="x86_64-conda_cos6-linux-gnu"'
++++++ export CONDA_BACKUP_HOST=x86_64-conda_cos6-linux-gnu
++++++ CONDA_BACKUP_HOST=x86_64-conda_cos6-linux-gnu
+++++ '[' -n x86_64-conda_cos6-linux-gnu ']'
+++++ eval export ''\''HOST=x86_64-conda_cos6-linux-gnu'\'''
++++++ export HOST=x86_64-conda_cos6-linux-gnu
++++++ HOST=x86_64-conda_cos6-linux-gnu
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cc
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cc -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo cc
++++++ tr a-z+- A-ZX_
+++++ thing=CC
+++++ eval 'oldval=$CC'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_CC
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cc ']'
+++++ eval export ''\''CC=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cc'\'''
++++++ export CC=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cc
++++++ CC=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cc
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cpp
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cpp -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo cpp
++++++ tr a-z+- A-ZX_
+++++ thing=CPP
+++++ eval 'oldval=$CPP'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_CPP
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cpp ']'
+++++ eval export ''\''CPP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cpp'\'''
++++++ export CPP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cpp
++++++ CPP=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-cpp
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo gcc
++++++ tr a-z+- A-ZX_
+++++ thing=GCC
+++++ eval 'oldval=$GCC'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_GCC
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc ']'
+++++ eval export ''\''GCC=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc'\'''
++++++ export GCC=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc
++++++ GCC=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ar
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ar -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo gcc-ar
++++++ tr a-z+- A-ZX_
+++++ thing=GCC_AR
+++++ eval 'oldval=$GCC_AR'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_GCC_AR
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ar ']'
+++++ eval export ''\''GCC_AR=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ar'\'''
++++++ export GCC_AR=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ar
++++++ GCC_AR=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ar
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-nm
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-nm -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo gcc-nm
++++++ tr a-z+- A-ZX_
+++++ thing=GCC_NM
+++++ eval 'oldval=$GCC_NM'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_GCC_NM
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-nm ']'
+++++ eval export ''\''GCC_NM=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-nm'\'''
++++++ export GCC_NM=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-nm
++++++ GCC_NM=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-nm
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ranlib
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ranlib -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo gcc-ranlib
++++++ tr a-z+- A-ZX_
+++++ thing=GCC_RANLIB
+++++ eval 'oldval=$GCC_RANLIB'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_GCC_RANLIB
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ranlib ']'
+++++ eval export ''\''GCC_RANLIB=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ranlib'\'''
++++++ export GCC_RANLIB=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ranlib
++++++ GCC_RANLIB=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-gcc-ranlib
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'CPPFLAGS,-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
++++++ echo 'CPPFLAGS,-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=CPPFLAGS
+++++ '[' apply = apply ']'
++++++ echo CPPFLAGS
++++++ tr a-z+- A-ZX_
+++++ thing=CPPFLAGS
+++++ eval 'oldval=$CPPFLAGS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_CPPFLAGS
+++++ '[' -n '-DNDEBUG -D_FORTIFY_SOURCE=2 -O2' ']'
+++++ eval export ''\''CPPFLAGS=-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'\'''
++++++ export 'CPPFLAGS=-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
++++++ CPPFLAGS='-DNDEBUG -D_FORTIFY_SOURCE=2 -O2'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ echo 'CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=CFLAGS
+++++ '[' apply = apply ']'
++++++ echo CFLAGS
++++++ tr a-z+- A-ZX_
+++++ thing=CFLAGS
+++++ eval 'oldval=$CFLAGS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_CFLAGS
+++++ '[' -n '-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe' ']'
+++++ eval export ''\''CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'\'''
++++++ export 'CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ CFLAGS='-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'LDFLAGS,-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
++++++ echo 'LDFLAGS,-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=LDFLAGS
+++++ '[' apply = apply ']'
++++++ echo LDFLAGS
++++++ tr a-z+- A-ZX_
+++++ thing=LDFLAGS
+++++ eval 'oldval=$LDFLAGS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_LDFLAGS
+++++ '[' -n '-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections' ']'
+++++ eval export ''\''LDFLAGS=-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'\'''
++++++ export 'LDFLAGS=-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
++++++ LDFLAGS='-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'DEBUG_CPPFLAGS,-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
++++++ echo 'DEBUG_CPPFLAGS,-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=DEBUG_CPPFLAGS
+++++ '[' apply = apply ']'
++++++ echo DEBUG_CPPFLAGS
++++++ tr a-z+- A-ZX_
+++++ thing=DEBUG_CPPFLAGS
+++++ eval 'oldval=$DEBUG_CPPFLAGS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_DEBUG_CPPFLAGS
+++++ '[' -n '-D_DEBUG -D_FORTIFY_SOURCE=2 -Og' ']'
+++++ eval export ''\''DEBUG_CPPFLAGS=-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'\'''
++++++ export 'DEBUG_CPPFLAGS=-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
++++++ DEBUG_CPPFLAGS='-D_DEBUG -D_FORTIFY_SOURCE=2 -Og'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'DEBUG_CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ echo 'DEBUG_CFLAGS,-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=DEBUG_CFLAGS
+++++ '[' apply = apply ']'
++++++ echo DEBUG_CFLAGS
++++++ tr a-z+- A-ZX_
+++++ thing=DEBUG_CFLAGS
+++++ eval 'oldval=$DEBUG_CFLAGS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_DEBUG_CFLAGS
+++++ '[' -n '-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe' ']'
+++++ eval export ''\''DEBUG_CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'\'''
++++++ export 'DEBUG_CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ DEBUG_CFLAGS='-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo CMAKE_PREFIX_PATH,
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval=
++++++ echo CMAKE_PREFIX_PATH,
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=CMAKE_PREFIX_PATH
+++++ '[' apply = apply ']'
++++++ echo CMAKE_PREFIX_PATH
++++++ tr a-z+- A-ZX_
+++++ thing=CMAKE_PREFIX_PATH
+++++ eval 'oldval=$CMAKE_PREFIX_PATH'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_CMAKE_PREFIX_PATH
+++++ '[' -n '' ']'
+++++ eval unset '${from}${thing}'
++++++ unset CMAKE_PREFIX_PATH
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo _CONDA_PYTHON_SYSCONFIGDATA_NAME,_sysconfigdata_x86_64_conda_cos6_linux_gnu
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval=_sysconfigdata_x86_64_conda_cos6_linux_gnu
++++++ echo _CONDA_PYTHON_SYSCONFIGDATA_NAME,_sysconfigdata_x86_64_conda_cos6_linux_gnu
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=_CONDA_PYTHON_SYSCONFIGDATA_NAME
+++++ '[' apply = apply ']'
++++++ echo _CONDA_PYTHON_SYSCONFIGDATA_NAME
++++++ tr a-z+- A-ZX_
+++++ thing=_CONDA_PYTHON_SYSCONFIGDATA_NAME
+++++ eval 'oldval=$_CONDA_PYTHON_SYSCONFIGDATA_NAME'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP__CONDA_PYTHON_SYSCONFIGDATA_NAME
+++++ '[' -n _sysconfigdata_x86_64_conda_cos6_linux_gnu ']'
+++++ eval export ''\''_CONDA_PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata_x86_64_conda_cos6_linux_gnu'\'''
++++++ export _CONDA_PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata_x86_64_conda_cos6_linux_gnu
++++++ _CONDA_PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata_x86_64_conda_cos6_linux_gnu
+++++ return 0
+++++ '[' 0 -ne 0 ']'
+++++ '[' 0 = 1 ']'
++++ . /projects/opt/centos7/anaconda3/etc/conda/activate.d/activate-gxx_linux-64.sh
+++++ '[' 0 = 1 ']'
+++++ CXXFLAGS_USED='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
+++++ DEBUG_CXXFLAGS_USED='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
+++++ '[' 0 = 1 ']'
+++++ _tc_activation activate host x86_64-conda_cos6-linux-gnu x86_64-conda_cos6-linux-gnu- c++ g++ 'CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe' 'DEBUG_CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
+++++ local act_nature=activate
+++++ shift
+++++ local tc_nature=host
+++++ shift
+++++ local tc_machine=x86_64-conda_cos6-linux-gnu
+++++ shift
+++++ local tc_prefix=x86_64-conda_cos6-linux-gnu-
+++++ shift
+++++ local thing
+++++ local newval
+++++ local from
+++++ local to
+++++ local pass
+++++ '[' activate = activate ']'
+++++ from=
+++++ to=CONDA_BACKUP_
+++++ for pass in check apply
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval=x86_64-conda_cos6-linux-gnu
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=host
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++ -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++ -a check = check ']'
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
++++++ echo 'CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
+++++ thing=CXXFLAGS
+++++ '[' check = apply ']'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'DEBUG_CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ echo 'DEBUG_CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=DEBUG_CXXFLAGS
+++++ '[' check = apply ']'
+++++ for pass in check apply
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval=x86_64-conda_cos6-linux-gnu
++++++ echo host,x86_64-conda_cos6-linux-gnu
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=host
+++++ '[' apply = apply ']'
++++++ echo host
++++++ tr a-z+- A-ZX_
+++++ thing=HOST
+++++ eval 'oldval=$HOST'
++++++ oldval=x86_64-conda_cos6-linux-gnu
+++++ '[' -n x86_64-conda_cos6-linux-gnu ']'
+++++ eval export 'CONDA_BACKUP_'\''HOST'\''="x86_64-conda_cos6-linux-gnu"'
++++++ export CONDA_BACKUP_HOST=x86_64-conda_cos6-linux-gnu
++++++ CONDA_BACKUP_HOST=x86_64-conda_cos6-linux-gnu
+++++ '[' -n x86_64-conda_cos6-linux-gnu ']'
+++++ eval export ''\''HOST=x86_64-conda_cos6-linux-gnu'\'''
++++++ export HOST=x86_64-conda_cos6-linux-gnu
++++++ HOST=x86_64-conda_cos6-linux-gnu
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++ -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo c++
++++++ tr a-z+- A-ZX_
+++++ thing=CXX
+++++ eval 'oldval=$CXX'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_CXX
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++ ']'
+++++ eval export ''\''CXX=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++'\'''
++++++ export CXX=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++
++++++ CXX=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-c++
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
+++++ newval=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++
+++++ '[' '!' -x /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++ -a apply = check ']'
+++++ '[' apply = apply ']'
++++++ echo g++
++++++ tr a-z+- A-ZX_
+++++ thing=GXX
+++++ eval 'oldval=$GXX'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_GXX
+++++ '[' -n /projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++ ']'
+++++ eval export ''\''GXX=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++'\'''
++++++ export GXX=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++
++++++ GXX=/projects/opt/centos7/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ echo 'CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=CXXFLAGS
+++++ '[' apply = apply ']'
++++++ echo CXXFLAGS
++++++ tr a-z+- A-ZX_
+++++ thing=CXXFLAGS
+++++ eval 'oldval=$CXXFLAGS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_CXXFLAGS
+++++ '[' -n '-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe' ']'
+++++ eval export ''\''CXXFLAGS=-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'\'''
++++++ export 'CXXFLAGS=-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
++++++ CXXFLAGS='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe'
+++++ for thing in '$tc_nature,$tc_machine' '"$@"'
+++++ case "${thing}" in
++++++ echo 'DEBUG_CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ sed 's,^[^\,]*\,\(.*\),\1,'
+++++ newval='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ echo 'DEBUG_CXXFLAGS,-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ sed 's,^\([^\,]*\)\,.*,\1,'
+++++ thing=DEBUG_CXXFLAGS
+++++ '[' apply = apply ']'
++++++ echo DEBUG_CXXFLAGS
++++++ tr a-z+- A-ZX_
+++++ thing=DEBUG_CXXFLAGS
+++++ eval 'oldval=$DEBUG_CXXFLAGS'
++++++ oldval=
+++++ '[' -n '' ']'
+++++ eval unset '${to}${thing}'
++++++ unset CONDA_BACKUP_DEBUG_CXXFLAGS
+++++ '[' -n '-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe' ']'
+++++ eval export ''\''DEBUG_CXXFLAGS=-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'\'''
++++++ export 'DEBUG_CXXFLAGS=-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
++++++ DEBUG_CXXFLAGS='-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe'
+++++ return 0
+++++ '[' 0 -ne 0 ']'
+++++ '[' 0 = 1 ']'
+++ _conda_hashr
+++ case "$_CONDA_SHELL_FLAVOR" in
+++ hash -r
++ nohup taskset -c 0 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''0'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 0 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''0'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 2 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''2'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 3 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''3'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 4 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''4'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 5 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''5'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 6 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''6'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 7 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''7'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 8 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''8'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 9 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''9'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 10 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''10'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 11 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''11'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 12 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''12'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 13 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''13'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 14 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''14'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 15 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''15'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 16 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''16'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 17 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''17'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 18 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''18'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 19 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''19'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 20 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''20'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 21 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''21'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 22 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''22'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 23 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''23'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 24 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''24'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 25 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''25'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 26 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''26'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 27 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''27'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 28 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''28'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ wait
++ nohup taskset -c 29 matlab -r 'shot_noise_budget('\''1'\'', '\''10'\'', '\''10'\'', '\''29'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 0 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''0'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 1 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''1'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 2 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''2'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 3 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''3'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 4 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''4'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 5 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''5'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 6 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''6'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 7 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''7'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 8 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''8'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 9 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''9'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 10 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''10'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 11 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''11'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 12 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''12'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 13 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''13'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 14 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''14'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 15 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''15'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 16 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''16'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 17 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''17'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 18 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''18'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 19 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''19'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 20 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''20'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 21 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''21'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 22 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''22'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 23 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''23'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 24 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''24'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 25 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''25'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 26 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''26'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 27 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''27'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 28 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''28'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ wait
++ nohup taskset -c 29 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''29'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 1 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''1'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 0 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''0'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 2 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''2'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 3 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''3'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 4 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''128'\'', '\''4'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 65 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''5'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 66 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''6'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 67 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''7'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 68 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''8'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 69 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''9'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 70 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''10'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 71 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''11'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 72 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''12'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 73 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''13'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 74 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''14'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 75 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''15'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 76 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''16'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 77 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''17'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 78 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''18'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 79 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''19'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 80 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''20'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 81 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''21'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 82 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''22'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 83 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''23'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 84 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''24'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 85 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''25'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 86 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''26'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 87 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''27'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 88 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''28'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ wait
++ nohup taskset -c 89 matlab -r 'shot_noise_budget('\''1'\'', '\''8'\'', '\''128'\'', '\''29'\'', '\''3'\'',  '\''_LinGrow'+ nohup taskset -c 1 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''1'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 2 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''2'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 0 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''0'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 3 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''3'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 4 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''4'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 5 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''5'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 6 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''6'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 7 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''7'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 9 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''9'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 8 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''8'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 10 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''10'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 11 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''11'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 12 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''12'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 13 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''13'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 14 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''14'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 15 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''15'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 16 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''16'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 17 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''17'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 18 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''18'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 19 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''19'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 20 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''20'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 21 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''21'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 22 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''22'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 23 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''23'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 24 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''24'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 25 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''25'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 26 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''26'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 27 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''27'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 28 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''28'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ wait
++ nohup taskset -c 29 matlab -r 'shot_noise_budget('\''2'\'', '\''10'\'', '\''10'\'', '\''29'\'', '\''3'\'',  '\''_LinGrow'\'')'
+ taskset -c 30 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''0'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 31 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''1'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 32 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''2'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 33 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''3'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 34 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''4'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 35 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''5'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 36 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''6'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 37 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''7'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 38 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''8'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 39 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''9'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 40 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''10'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 41 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''11'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 42 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''12'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 43 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''13'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 44 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''14'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 45 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''15'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 46 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''16'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 47 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''17'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 48 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''18'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 49 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''19'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 50 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''20'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 51 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''21'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 52 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''22'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 53 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''23'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 54 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''24'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 55 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''25'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 56 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''26'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 57 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''27'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 58 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''28'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 59 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''29'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 60 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''0'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 61 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''1'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 62 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''2'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 63 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''3'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 64 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''4'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 65 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''5'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 66 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''6'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 67 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''7'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 68 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''8'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 69 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''9'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 70 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''10'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 71 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''11'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 72 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''12'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 73 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''13'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 74 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''14'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 75 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''15'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 76 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''16'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 77 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''17'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 78 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''18'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 79 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''19'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 80 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''20'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 81 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''21'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 82 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''22'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 83 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''23'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 84 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''24'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 85 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''25'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 86 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''26'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 87 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''27'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ wait
++ nohup taskset -c 88 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''28'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 89 matlab -r 'shot_noise_budget('\''4'\'', '\''8'\'', '\''128'\'', '\''29'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 0 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''0'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 1 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''1'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 2 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''2'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 3 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''3'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 4 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''4'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 5 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''5'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 6 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''6'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 7 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''7'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 8 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''8'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 9 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''9'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 10 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''10'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 11 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''11'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 12 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''12'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 14 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''14'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 13 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''13'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 15 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''15'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 16 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''16'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 17 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''17'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 18 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''18'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 19 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''19'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 20 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''20'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 21 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''21'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 22 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''22'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 23 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''23'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 24 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''24'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 28 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''28'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 25 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''25'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 26 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''26'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 27 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''27'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ wait
++ nohup taskset -c 29 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''29'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 1 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''1'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 0 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''0'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 2 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''2'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 3 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''3'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 4 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''4'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 5 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''5'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 6 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''6'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 7 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''7'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 8 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''8'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 9 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''9'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 10 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''10'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 11 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''11'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 12 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''12'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 13 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''13'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 14 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''14'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 15 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''15'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 16 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''16'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 17 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''17'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 18 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''18'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 19 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''19'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 20 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''20'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 21 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''21'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 22 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''22'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 23 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''23'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 24 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''24'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 25 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''25'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 26 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''26'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 27 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''27'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 28 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''28'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ wait
++ nohup taskset -c 29 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''29'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 1 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''1'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 2 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''2'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 3 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''3'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 4 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''4'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 0 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''0'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 5 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''5'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 6 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''6'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 7 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''7'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 8 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''8'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 9 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''9'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 11 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''11'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 12 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''12'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 10 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''10'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 14 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''14'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 13 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''13'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 16 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''16'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 15 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''15'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 18 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''18'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 17 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''17'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 19 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''19'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 20 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''20'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 22 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''22'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 21 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''21'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 23 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''23'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 24 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''24'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 26 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''26'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 25 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''25'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 27 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''27'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 28 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''28'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ wait
++ nohup taskset -c 29 matlab -r 'shot_noise_budget('\''3'\'', '\''10'\'', '\''10'\'', '\''29'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 0 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''0'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 1 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''1'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 2 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''2'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 3 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''3'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 4 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''4'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 5 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''5'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 6 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''6'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 8 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''8'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 7 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''7'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 9 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''9'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 10 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''10'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 11 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''11'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 12 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''12'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 14 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''14'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 13 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''13'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 16 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''16'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 15 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''15'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 17 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''17'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 18 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''18'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 20 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''20'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 21 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''21'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 23 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''23'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 22 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''22'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 24 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''24'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 25 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''25'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 26 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''26'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 27 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''27'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 19 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''19'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 28 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''28'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 30 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''0'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 31 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''1'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 32 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''2'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 33 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''3'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 29 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''29'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 35 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''5'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 36 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''6'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 34 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''4'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 38 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''8'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 37 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''7'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 39 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''9'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 40 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''10'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 41 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''11'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 42 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''12'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 43 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''13'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 44 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''14'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 45 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''15'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 46 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''16'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 47 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''17'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 48 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''18'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 49 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''19'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 50 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''20'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 51 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''21'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 52 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''22'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 53 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''23'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 54 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''24'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 55 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''25'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 56 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''26'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 57 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''27'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 58 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''28'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 59 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''29'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 60 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''0'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 61 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''1'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 62 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''2'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 63 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''3'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 64 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''4'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 65 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''5'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 66 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''6'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 67 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''7'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 68 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''8'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 69 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''9'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 70 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''10'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 71 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''11'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 72 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''12'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 73 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''13'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 74 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''14'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 75 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''15'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 76 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''16'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 77 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''17'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 78 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''18'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 79 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''19'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 80 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''20'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 81 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''21'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 82 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''22'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 83 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''23'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 84 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''24'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 85 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''25'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 86 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''26'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 87 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''27'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 88 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''28'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ wait
++ nohup taskset -c 89 matlab -r 'shot_noise_budget('\''4'\'', '\''4'\'', '\''64'\'', '\''29'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 1 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''1'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 0 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''0'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 2 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''2'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 3 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''3'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 4 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''4'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 5 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''5'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 6 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''6'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 7 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''7'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 8 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''8'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 9 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''9'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 10 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''10'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 11 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''11'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 12 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''12'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 13 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''13'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 14 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''14'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 15 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''15'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 16 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''16'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 17 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''17'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 18 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''18'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 19 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''19'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 20 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''20'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 21 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''21'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 22 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''22'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 23 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''23'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 24 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''24'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 25 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''25'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 26 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''26'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 27 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''27'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 28 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''28'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ wait
++ nohup taskset -c 29 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''29'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 0 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''0'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 1 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''1'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 2 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''2'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 3 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''3'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 4 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''4'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 5 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''5'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 6 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''6'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 7 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''7'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 8 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''8'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 9 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''9'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 10 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''10'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 11 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''11'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 12 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''12'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 13 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''13'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 14 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''14'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 15 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''15'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 16 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''16'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 17 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''17'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 18 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''18'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 19 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''19'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 20 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''20'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 21 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''21'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 22 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''22'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 23 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''23'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 24 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''24'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 25 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''25'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 26 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''26'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 27 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''27'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 28 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''28'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ wait
++ nohup taskset -c 29 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''29'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 0 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''0'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 1 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''1'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 2 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''2'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 3 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''3'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 4 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''4'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 6 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''6'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 8 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''8'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 5 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''5'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 7 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''7'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 9 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''9'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 10 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''10'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 11 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''11'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 12 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''12'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 13 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''13'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 14 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''14'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 15 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''15'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 16 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''16'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 17 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''17'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 18 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''18'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 19 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''19'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 20 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''20'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 21 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''21'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 22 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''22'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 23 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''23'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 24 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''24'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 25 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''25'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 26 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''26'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 27 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''27'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 28 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''28'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 29 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''29'\'', '\''1'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 30 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''0'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 31 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''1'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 32 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''2'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 33 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''3'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 34 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''4'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 35 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''5'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 36 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''6'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 37 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''7'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 38 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''8'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 39 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''9'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 40 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''10'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 41 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''11'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 42 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''12'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 43 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''13'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 44 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''14'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 45 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''15'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 46 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''16'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 47 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''17'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 48 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''18'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 49 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''19'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 50 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''20'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 51 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''21'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 52 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''22'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 53 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''23'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 54 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''24'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 55 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''25'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 56 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''26'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 57 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''27'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 58 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''28'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 59 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''29'\'', '\''2'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 60 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''0'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 61 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''1'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 62 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''2'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 63 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''3'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 64 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''4'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 65 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''5'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 66 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''6'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 67 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''7'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 68 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''8'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 69 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''9'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 70 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''10'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 71 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''11'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 72 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''12'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 73 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''13'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 74 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''14'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 75 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''15'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 76 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''16'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 77 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''17'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 78 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''18'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 79 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''19'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 80 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''20'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 81 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''21'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 82 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''22'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 83 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''23'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 84 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''24'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 85 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''25'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 86 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''26'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 87 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''27'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 88 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''28'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ wait
++ nohup taskset -c 89 matlab -r 'shot_noise_budget('\''4'\'', '\''6'\'', '\''96'\'', '\''29'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 1 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''1'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 0 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''0'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 2 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''2'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 3 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''3'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 4 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''4'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 5 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''5'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 6 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''6'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 7 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''7'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 8 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''8'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 9 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''9'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 10 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''10'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 11 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''11'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 12 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''12'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 13 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''13'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 14 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''14'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 15 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''15'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 16 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''16'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 17 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''17'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 18 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''18'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 19 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''19'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 20 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''20'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 21 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''21'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 22 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''22'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 23 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''23'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 24 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''24'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 25 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''25'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 26 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''26'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 27 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''27'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ nohup taskset -c 28 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''28'\'', '\''3'\'',  '\''_LinGrow'\'')'
++ wait
++ nohup taskset -c 29 matlab -r 'shot_noise_budget('\''4'\'', '\''10'\'', '\''10'\'', '\''29'\'', '\''3'\'',  '\''_LinGrow'\'')'
+                                                + echo Stopping:
++ date
++ echo Stopping:
++ date

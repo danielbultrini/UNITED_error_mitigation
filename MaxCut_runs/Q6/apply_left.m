@@ -1,0 +1,28 @@
+function y = apply_left(x,g,p)
+    %applies gate g at positions p "to the left" (opposite to the normal direction)
+    %x represents input states: first index enumerates states. After that,
+    %the indices are numbered from top to bottom.
+    %index convention for g: first left, from top
+
+
+
+
+    N = length(size(x)); %number of indices of x
+    q = length(p); %number of qubits that g acts on
+    q2 = 2^q;
+
+    %build the first permutation
+    t = 1:N;
+    t = t(~ismember(1:N,p+1));
+    per = [p+1 t];
+    y = permute(x, per);
+    y = reshape(y,q2,numel(y)/q2);
+    y = reshape(g,q2,q2) * y;
+    y = reshape(y, [2*ones(1,q) size(x,1) 2*ones(1,N-1-q)] );
+    %the second permutation is the inverse of the first one
+    per2(per) = 1:length(per);
+    y = permute(y,per2);
+
+
+
+end
