@@ -490,7 +490,7 @@ def load_max_cut_data(qubit_number:int, training_set=100):
     
     ###
     Q_filtered.loc[Q_filtered["budget"] == 0, "budget"] = 10**12  
-    ### Only done for plotting purposes, so that infinity is at the end of the plot
+    ### Only done for plotting purposes, so that infinity is at the end of the plot rather than the start
     return Q_filtered
 
 def plot_over_budget(df):
