@@ -630,9 +630,8 @@ def figure_8(coi,train,qubit=4,depth=4,g=None):
     npcoi = coi.query(f"file.str.contains('{qubit}p{depth}')")
     nptrain = train.query(f"file.str.contains('{qubit}p{depth}')")
     sns.displot(kind='hist',data=pd.concat([npcoi,nptrain]),x='exact',col='file',col_wrap=4,bins=25,facet_kws=dict(sharey=True)).set(yscale='log')
-
+    
 def effect_of_training_set(df):
-
     zero_copy_methods = df.query(
         'abs_error > 0  & copies == 1 & nlsp==1  & res_type=="abs_error" & ( type == "ZNE" )'
     )
@@ -644,7 +643,7 @@ def effect_of_training_set(df):
         'abs_error >  0  & nlsp==1 & copies==2 & res_type=="abs_error" & ( type=="VD")'
     )
     many_copy_methods = df.query(
-        'abs_error > 0  &nlsp==1  & copies==2 & res_type=="abs_error" & ( type=="UNITED")'
+        'abs_error > 0  &nlsp==1  & copies==3 & res_type=="abs_error" & ( type=="UNITED")'
     )
     plot_df = pd.concat(
         [many_copy_methods,vnCDR],
@@ -652,7 +651,7 @@ def effect_of_training_set(df):
         ignore_index=True,
     )
     fig = sns.relplot(
-        data=plot_df.reset_index().query('(budget==0)&g==1'),
+        data=plot_df.reset_index().query('(budget==0|budget==10**10)&g==1'),
         kind="line",
         y="abs_error",
         x="Qubits",
