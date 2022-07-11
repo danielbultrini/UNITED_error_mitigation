@@ -461,7 +461,9 @@ def load_max_cut_data(qubit_number:int, training_set=100):
     ### Only done for plotting purposes, so that infinity is at the end of the plot rather than the start
     return Q_filtered
 
-def plot_over_budget(df,statistical_value='mean'):
+def figure_5(df,statistic_to_plot='mean'):
+    """Plots figure five, which is the performance of the techniques over budget. This is extended in the sense that it returns
+    all qubit results in a panel."""
     zero_copy_methods = df.query(
         'abs_error > 0  & copies == 1 & nlsp==1 & description == "3nlsp_full" & res_type=="abs_error" & ( type == "ZNE" | type == "vnCDR")'
     )
@@ -488,7 +490,7 @@ def plot_over_budget(df,statistical_value='mean'):
         hue="type",
         col="Qubits",
         col_wrap = 2,
-        estimator=statistical_value,
+        estimator=statistic_to_plot,
         markers=True,
         ci=None,
     ).set(yscale="log", xscale="log")
@@ -499,6 +501,44 @@ def plot_over_budget(df,statistical_value='mean'):
     xticks[-3] = r"$\infty$"
     xticks[-4] = r"$\cdots$"
     ax.set_xticklabels(xticks)
+    return fig
+
+def figure_4(df,statistic_to_plot='mean',like_paper=True):
+    """"Plot figure 5 from the paper, which is the absoulte error over qubits at different budgets."""
+    if like_paper:
+        df = maxcut_df.query('budget>0&budget<10**11&budget!=10**9&budget!=10**7')
+    else: # Basically will show all computed budgets
+        df = maxcut_df.query('budget>0&budget<10**11')
+    zero_copy_methods = df.query(
+        'abs_error > 0  & copies == 1 & nlsp==1 & description == "3nlsp_full" & res_type=="abs_error" & ( type == "ZNE" | type == "vnCDR")'
+    )
+    noisy = df.query(
+        'abs_error > 0  & copies == 1 & nlsp==1 & description == "3nlsp_full" & res_type=="abs_error" & ( type=="VD")'
+    )
+    few_copy_methods = df.query(
+        'abs_error >  0  & nlsp==1 & copies==2 & description == "3nlsp_full" & res_type=="abs_error" & ( type=="VD")'
+    )
+    many_copy_methods = df.query(
+        'abs_error > 0  &nlsp==1  & copies==4& description == "3nlsp_full" & res_type=="abs_error" & ( type=="UNITED")'
+    )
+    noisy["type"] = "noisy"
+    plot_df = pd.concat(
+        [noisy, zero_copy_methods, few_copy_methods, many_copy_methods],
+        axis=0,
+        ignore_index=True,
+    )
+    fig = sns.relplot(
+        data=plot_df.reset_index(),
+        kind="line",
+        x="Qubits",
+        col='budget',
+        col_wrap=2,
+        y="abs_error",
+        hue="type",
+        estimator=statistic_to_plot,
+        markers=True,
+        ci=None,
+    ).set(yscale="log", xscale='log')
     return fig
 
 def load_all_data():

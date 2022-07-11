@@ -6,9 +6,8 @@ tags = [""]
 #predefined budgets
 budget_shots = [
     [None],
-    [50000, 1000, 333, 500, 250, 166, 125, 100, 83, 55, 41, 33, 27],
-    [500000, 10000, 3333, 5000, 2500, 1666, 1250, 1000, 833, 555, 416, 333, 277],
-    [
+    {50000, 1000, 333, 500, 250, 166, 125, 100, 83, 55, 41, 33, 27,
+    500000, 10000, 3333, 5000, 2500, 1666, 1250, 1000, 833, 555, 416, 333, 277,
         5000000,
         100000,
         33333,
@@ -22,8 +21,6 @@ budget_shots = [
         4166,
         3333,
         2777,
-    ],
-    [
         50000000,
         1000000,
         333333,
@@ -37,8 +34,6 @@ budget_shots = [
         41666,
         33333,
         27777,
-    ],
-    [
         500000000,
         10000000,
         3333333,
@@ -52,8 +47,6 @@ budget_shots = [
         416666,
         333333,
         277777,
-    ],
-    [
         5000000000,
         100000000,
         33333333,
@@ -67,9 +60,8 @@ budget_shots = [
         4166666,
         3333333,
         2777777,
-    ],
+    },
 ]
-
 def relative_shots(training_sets, noise_levels, max_copies, shots_budget):
     """Returns relative shots with less shots for COI when shots budget is high enough.
 
@@ -485,4 +477,124 @@ def plot_over_budget(df):
     xticks[-3] = r"$\infty$"
     xticks[-4] = r"$\cdots$"
     ax.set_xticklabels(xticks)
+    return fig
+
+def load_rqc_data():
+    if Path("./RQC_runs/checkpoint.pkl").is_file():
+        maxcut_df=pd.read_pickle("./RQC_runs/checkpoint.pkl") 
+    else:
+        base_folder = "./RQC_runs/all_qubits/"
+        folders = [base_folder]
+        tags = ['_LinGrow']
+        budgies = [ [None],
+                    {50000,  1000,   333,   500,   250,   166,   125,   100,    83, 55,    41,    33,    27,
+                    500000,  10000,   3333,   5000,   2500,   1666,   1250,   1000, 833,    555,    416,    333,    277,
+                    5000000,  100000,   33333,   50000,   25000,   16666,   12500, 10000,    8333,    5555,    4166,    3333,    2777 ,
+                    50000000,  1000000,   333333,   500000,   250000,   166666, 125000,   100000,    83333,    55555,    41666,    33333, 27777,
+                    500000000,  10000000,   3333333,   5000000,   2500000,   1666666, 1250000,   1000000,    833333,    555555,    416666,    333333, 277777,
+                    10000000000, 5000000000,  100000000,   33333333,   50000000,   25000000,   16666666, 12500000,   10000000,    8333333,    5555555,    4166666,    3333333, 2777777,
+                    50000000000,  1000000000,   333333333,   500000000,   250000000,   166666666, 125000000,   100000000,    83333333,    55555555,    41666666,    33333333, 27777777,
+                    }]
+        budge_abs,budge_res,budge_val = load_multiple_files_budget([4,4,6,6,8,8,10],[4,4*16,6,6*16,8,8*16,10],30,nlsp_list = [1,2,3],N=10,Nts=100,max_copies=6,tags=tags,
+                                    density_matrices = False,shots=budgies,folders = folders,train=True,budgets=[0,5],train_use=100)
+        NLSP3FULL_abs = budge_abs
+        NLSP3HALF_abs  ,_,_ = load_multiple_files_budget([4,4,6,6,8,8,10],[4,4*16,6,6*16,8,8*16,10],30,nlsp_list = [1,2,3],N=10,Nts=100,max_copies=6,tags=tags,
+                                    density_matrices = False,shots=budgies,folders = folders,train=True,budgets=[0,5],train_use=50) 
+        NLSP3FULL_abs  = NLSP3FULL_abs.assign(description =  '3nlsp_full')
+        NLSP3HALF_abs  = NLSP3HALF_abs.assign(description =  '3nlsp_half')
+        everything= pd.concat([NLSP3FULL_abs,NLSP3HALF_abs])
+        everything['type']=everything['type'].str.replace('_LinGrow','')
+        everything.to_pickle("./RQC_runs/checkpoint.pkl")
+def filter_rqc_data(df)
+    if Path('./RQC_runs/filtered_data.pkl').is_file():
+        df=pd.read_pickle('./RQC_runs/filtered_data.pkl') 
+    else:
+        rqc_half_df = filter_budget(df.query('description=="3nlsp_half"'),[0,10**5,10**6,10**7,10**8,10**9,10**10,10**11],5)
+        rqc_half_df['volume'] = rqc_half_df.depth*rqc_half_df.Qubits*rqc_half_df.Qubits
+        rqc_half_df["g"] = rqc_half_df.depth//rqc_half_df.Qubits
+        #rqc_half_df.to_csv('./RQC_runs/filtered_rqc_half_data.csv')
+        rqc_full_df = filter_budget(df.query('description=="3nlsp_full"'),[0,10**5,10**6,10**7,10**8,10**9,10**10,10**11],100)
+        rqc_full_df['volume'] = rqc_full_df.depth*rqc_full_df.Qubits*rqc_full_df.Qubits
+        rqc_full_df["g"] = rqc_full_df.depth//rqc_full_df.Qubits
+        filtered_rqc = pd.concat([rqc_full_df,rqc_half_df])
+        filtered_rqc.to_pickle('./RQC_runs/filtered_data.pkl')
+        
+def figure_3(df,statistic_to_plot='mean'):
+    """Plots figure five, which is the performance of the techniques over budget. This is extended in the sense that it returns
+    all qubit results in a panel."""
+    zero_copy_methods = df.query(
+        'abs_error > 0  & copies == 1 & nlsp==1 & description == "3nlsp_full" & res_type=="abs_error" & ( type == "ZNE" | type == "vnCDR")'
+    )
+    noisy = df.query(
+        'abs_error > 0  & copies == 1 & nlsp==1 & description == "3nlsp_full" & res_type=="abs_error" & ( type=="VD")'
+    )
+    few_copy_methods = df.query(
+        'abs_error >  0  & nlsp==1 & copies==2 & description == "3nlsp_full" & res_type=="abs_error" & ( type=="VD")'
+    )
+    many_copy_methods = df.query(
+        'abs_error > 0  &nlsp==1  & copies==3 & description == "3nlsp_full" & res_type=="abs_error" & ( type=="UNITED")'
+    )
+    noisy["type"] = "noisy"
+    plot_df = pd.concat(
+        [noisy, zero_copy_methods, few_copy_methods, many_copy_methods],
+        axis=0,
+        ignore_index=True,
+    )
+    fig = sns.relplot(
+        data=plot_df.reset_index(),
+        kind="line",
+        x="budget",
+        y="abs_error",
+        hue="type",
+        col="Qubits",
+        col_wrap = 2,
+        estimator=statistic_to_plot,
+        markers=True,
+        ci=None,
+    ).set(yscale="log", xscale="log")
+    ax = fig.axes[0]
+    xticks = ax.get_xticks().tolist()
+    for i in range(len(xticks) - 1):
+        xticks[i] = rf"$10^{{{i+3}}}$"
+    xticks[-3] = r"$\infty$"
+    xticks[-4] = r"$\cdots$"
+    ax.set_xticklabels(xticks)
+    return fig
+
+def figure_2(df,statistic_to_plot='mean',like_paper=True):
+    """"Plot figure 5 from the paper, which is the absoulte error over qubits at different budgets."""
+    if like_paper:
+        df = maxcut_df.query('budget>0&budget<10**11&budget!=10**9&budget!=10**7')
+    else: # Basically will show all computed budgets
+        df = maxcut_df.query('budget>0&budget<10**11')
+    zero_copy_methods = df.query(
+        'abs_error > 0  & copies == 1 & nlsp==1 & description == "3nlsp_full" & res_type=="abs_error" & ( type == "ZNE" | type == "vnCDR")'
+    )
+    noisy = df.query(
+        'abs_error > 0  & copies == 1 & nlsp==1 & description == "3nlsp_full" & res_type=="abs_error" & ( type=="VD")'
+    )
+    few_copy_methods = df.query(
+        'abs_error >  0  & nlsp==1 & copies==2 & description == "3nlsp_full" & res_type=="abs_error" & ( type=="VD")'
+    )
+    many_copy_methods = df.query(
+        'abs_error > 0  &nlsp==1  & copies==3& description == "3nlsp_full" & res_type=="abs_error" & ( type=="UNITED")'
+    )
+    noisy["type"] = "noisy"
+    plot_df = pd.concat(
+        [noisy, zero_copy_methods, few_copy_methods, many_copy_methods],
+        axis=0,
+        ignore_index=True,
+    )
+    fig = sns.relplot(
+        data=plot_df.reset_index(),
+        kind="line",
+        x="Qubits",
+        col='budget',
+        col_wrap=2,
+        y="abs_error",
+        hue="type",
+        estimator=statistic_to_plot,
+        markers=True,
+        ci=None,
+    ).set(yscale="log", xscale='log')
     return fig
