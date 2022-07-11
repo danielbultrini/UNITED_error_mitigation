@@ -581,10 +581,10 @@ def load_raw_maxcut_data():
     coi = []
     for i in [4,6,8,10]:
         path = f'./MaxCut_runs/Q{i}/'
-        train.append(quick_load('train',path).assign(qubit=i))
-        coi.append(quick_load('COI',path).assign(qubit=i))
-    train = pd.concat(train).reset_index()
-    coi = pd.concat(coi).reset_index()
+        train.append(quick_load('train',path))
+        coi.append(quick_load('COI',path))
+    train = pd.concat(train).reset_index().drop('level_0',axis=1)
+    coi = pd.concat(coi).reset_index().drop('level_0',axis=1)
     return {'coi':coi,'train':train}
 
 def figure_7(df, budget=10**10, statistic_to_plot='mean'):
@@ -615,6 +615,6 @@ def figure_7(df, budget=10**10, statistic_to_plot='mean'):
     fig.set_ylabels(statistic_to_plot+' of absolute error')
     return fig
     
-def figure_8(coi,train,qubit=4):
+def figure_8(dataset):
     """Plots the disctibution of training data and circuit of interest for desired qubit"""
-    sns.displot(kind='hist',data=pd.concat([coi,train]).query(f"qubit=={qubit}").reset_index(),x='exact',col='data',col_wrap=4,bins=25,facet_kws=dict(sharey=True)).set(yscale='log')
+    sns.displot(kind='hist',data=dataset,x='exact',col='qubits',col_wrap=2,bins=25,facet_kws=dict(sharey=True)).set(yscale='log')

@@ -573,12 +573,12 @@ def load_raw_rqc_data():
     """Returns a dictionary of the coi data and training data with indices 'coi' and 'train'."""
     import os 
     dir_path = 'RQC_runs/all_qubits/'
-    def quick_load(fi):
+    def quick_load(fi,dir_path):
         res = []
         files = []
         for file in os.listdir(dir_path):
             if file.endswith('.pkl') and file.startswith(f"pandas_{fi}"):
-                res.append(pd.read_pickle(dir_path+file).assign(file=file).assign(data=fi))
+                res.append(pd.read_pickle(dir_path+file).assign(file=file).assign(data=fi).reset_index())
                 files.append(file)
         res = pd.concat(res)
         res=res.reset_index()
@@ -588,13 +588,13 @@ def load_raw_rqc_data():
         res["expectation"] = pd.to_numeric(res['expectation'])
         res["exact_abs"] = np.abs(res['exact'])
         return res
-    train = quick_load('train').reset_index()
-    coi = quick_load('COI').reset_index()
+    train = quick_load('train',dir_path)
+    coi = quick_load('COI',dir_path)
     return {'coi':coi,'train':train}
 
-def figure_7(df, budget=10**10, statistic_to_plot='mean'):
-    """Plots figure 7 for any budget"""
-    df = df.query(f'budget=={budget}')
+def figure_7(df, budget=10**10, statistic_to_plot='mean',g=1):
+    """Plots figure 7 for any budget and g value (depth scaling)"""
+    df = df.query(f'budget=={budget} & g=={g}')
     few_copy_methods = df.query(
         'abs_error >  0  & nlsp==1  & description == "3nlsp_half" & res_type=="abs_error" & ( type=="VD")'
     )
@@ -602,7 +602,7 @@ def figure_7(df, budget=10**10, statistic_to_plot='mean'):
         'abs_error > 0  &nlsp==1  & description == "3nlsp_half" & res_type=="abs_error" & ( type=="UNITED")'
     )
     plot_df = pd.concat(
-        [few_copy_methods, many_copy_methods],
+        [few_copy_methods],
         axis=0,
         ignore_index=True,
     )
@@ -610,7 +610,7 @@ def figure_7(df, budget=10**10, statistic_to_plot='mean'):
         data=plot_df.reset_index(),
         kind="line",
         x="copies",
-        col='depth',
+        col='g',
         y="abs_error",
         hue="Qubits",
         style='type',
@@ -627,6 +627,40 @@ def figure_8(coi,train,qubit=4,depth=4,g=None):
         if g ==1 or g==16:
             depth=int(qubit*g)
         else: print("g value nonexistent")
-    npcoi = coi.query(f"file.str.contains('{qubit}p{depth}')")['exact'].reset_index()
-    nptrain = train.query(f"file.str.contains('{qubit}p{depth}')")['exact'].reset_index()
-    sns.displot(kind='hist',data=pd.concat([npcoi,nptrain]).reset_index(),x='exact',col='data',col_wrap=4,bins=25,facet_kws=dict(sharey=True)).set(yscale='log')
+    npcoi = coi.query(f"file.str.contains('{qubit}p{depth}')")
+    nptrain = train.query(f"file.str.contains('{qubit}p{depth}')")
+    sns.displot(kind='hist',data=pd.concat([npcoi,nptrain]),x='exact',col='file',col_wrap=4,bins=25,facet_kws=dict(sharey=True)).set(yscale='log')
+
+def effect_of_training_set(df):
+
+    zero_copy_methods = df.query(
+        'abs_error > 0  & copies == 1 & nlsp==1  & res_type=="abs_error" & ( type == "ZNE" )'
+    )
+    vnCDR = df.query('type == "vnCDR"&abs_error > 0  & copies == 1 & nlsp==1  & res_type=="abs_error"')
+    noisy = df.query(
+        'abs_error > 0  & copies == 1 & nlsp==1 & res_type=="abs_error" & ( type=="VD")'
+    )
+    few_copy_methods = df.query(
+        'abs_error >  0  & nlsp==1 & copies==2 & res_type=="abs_error" & ( type=="VD")'
+    )
+    many_copy_methods = df.query(
+        'abs_error > 0  &nlsp==1  & copies==2 & res_type=="abs_error" & ( type=="UNITED")'
+    )
+    plot_df = pd.concat(
+        [many_copy_methods,vnCDR],
+        axis=0,
+        ignore_index=True,
+    )
+    fig = sns.relplot(
+        data=plot_df.reset_index().query('(budget==0)&g==1'),
+        kind="line",
+        y="abs_error",
+        x="Qubits",
+        hue="type",
+        style='description',
+        col="budget",
+        estimator='max', 
+        markers=True,
+        ci=None)
+    fig.set(yscale='log')
+    return fig
