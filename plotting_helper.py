@@ -6,9 +6,8 @@ tags = [""]
 #predefined budgets
 budget_shots = [
     [None],
-    [50000, 1000, 333, 500, 250, 166, 125, 100, 83, 55, 41, 33, 27],
-    [500000, 10000, 3333, 5000, 2500, 1666, 1250, 1000, 833, 555, 416, 333, 277],
-    [
+    {50000, 1000, 333, 500, 250, 166, 125, 100, 83, 55, 41, 33, 27,
+    500000, 10000, 3333, 5000, 2500, 1666, 1250, 1000, 833, 555, 416, 333, 277,
         5000000,
         100000,
         33333,
@@ -22,8 +21,6 @@ budget_shots = [
         4166,
         3333,
         2777,
-    ],
-    [
         50000000,
         1000000,
         333333,
@@ -37,8 +34,6 @@ budget_shots = [
         41666,
         33333,
         27777,
-    ],
-    [
         500000000,
         10000000,
         3333333,
@@ -52,8 +47,6 @@ budget_shots = [
         416666,
         333333,
         277777,
-    ],
-    [
         5000000000,
         100000000,
         33333333,
@@ -67,7 +60,7 @@ budget_shots = [
         4166666,
         3333333,
         2777777,
-    ],
+    },
 ]
 
 def relative_shots(training_sets, noise_levels, max_copies, shots_budget):
@@ -82,30 +75,6 @@ def relative_shots(training_sets, noise_levels, max_copies, shots_budget):
     Returns:
         pandas DF: dataframe with shot budgets
     """
-    # if shots_budget >= 10**9:
-    #     CDR_shots = shots_budget // training_sets
-    #     vnCDR_shots = CDR_shots // noise_levels
-    #     CGVD_shots = shots_budget // training_sets
-    #     storage = pd.DataFrame(
-    #         {
-    #             "VD": [shots_budget] + [shots_budget // 2] * (max_copies - 1),
-    #             "ZNE": [shots_budget // 2] + [shots_budget // 4] * (max_copies - 1),
-    #             "CDR": [CDR_shots] + [CDR_shots // 2] * (max_copies - 1),
-    #             "vnCDR": [vnCDR_shots] * (max_copies),
-    #             "CGVD": [
-    #                 base_cost // (copy + 1) // 2
-    #                 for copy, base_cost in enumerate([CGVD_shots] * (max_copies))
-    #             ],
-    #             "UNITED": [
-    #                 x // noise_levels
-    #                 for x in [
-    #                     base_cost // (copy + 1)
-    #                     for copy, base_cost in enumerate([CGVD_shots] * (max_copies))
-    #                 ]
-    #             ],
-    #             "copies": list(range(1, max_copies + 1)),
-    #         }
-    #     )
     if shots_budget != 0:
         CDR_shots = shots_budget // training_sets
         vnCDR_shots = CDR_shots // noise_levels
@@ -452,7 +421,6 @@ def filter_budget(df, budgets, training=100, max_copies=6, noise_levels=3):
                     f'type=="{technique}" & shots == {allowance} &  copies == {copy_no}'
                 ).assign(budget=budget)
             filtered_dfs.append(df_temp_abs)
-
     filtered_dfs = pd.concat(filtered_dfs)
     
     return filtered_dfs
@@ -480,7 +448,7 @@ def load_max_cut_data(qubit_number:int, training_set=100):
             shots=budget_shots,
             folders=folders,
             train=True,
-            budgets=[0, 5, 6, 7, 8, 9, 10],
+            budgets=[0, 1],
             train_use=100,
         )
 
@@ -493,7 +461,7 @@ def load_max_cut_data(qubit_number:int, training_set=100):
     ### Only done for plotting purposes, so that infinity is at the end of the plot rather than the start
     return Q_filtered
 
-def plot_over_budget(df):
+def plot_over_budget(df,statistical_value='mean'):
     zero_copy_methods = df.query(
         'abs_error > 0  & copies == 1 & nlsp==1 & description == "3nlsp_full" & res_type=="abs_error" & ( type == "ZNE" | type == "vnCDR")'
     )
@@ -504,7 +472,7 @@ def plot_over_budget(df):
         'abs_error >  0  & nlsp==1 & copies==2 & description == "3nlsp_full" & res_type=="abs_error" & ( type=="VD")'
     )
     many_copy_methods = df.query(
-        'abs_error > 0  &nlsp==1  & copies==4& description == "3nlsp_full" & res_type=="abs_error" & ( type=="UNITED")'
+        'abs_error > 0  &nlsp==1  & copies==4 & description == "3nlsp_full" & res_type=="abs_error" & ( type=="UNITED")'
     )
     noisy["type"] = "noisy"
     plot_df = pd.concat(
@@ -520,8 +488,7 @@ def plot_over_budget(df):
         hue="type",
         col="Qubits",
         col_wrap = 2,
-        style="copies",
-        estimator="mean",
+        estimator=statistical_value,
         markers=True,
         ci=None,
     ).set(yscale="log", xscale="log")
