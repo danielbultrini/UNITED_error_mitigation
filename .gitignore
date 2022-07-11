@@ -1,3 +1,5 @@
 *.pkl
 *.csv
 .vscode
+/plot_dataframes
+/__pycache__

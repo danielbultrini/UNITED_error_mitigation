@@ -1,1 +1,8 @@
 This is the repository that accompanies the paper [Unifying and benchmarking state-of-the-art quantum error mitigation techniques](https://arxiv.org/abs/2107.13470). Please follow the included notebooks to be able to reproduce the plots shown in the paper and easily access the dataframes for your own exploration of the data. Sadly the code to generate the data is impossible to open source. 
+Required packages
+pandas
+numpy
+qutip
+scikit
+matplotlib
+scipy
