@@ -477,24 +477,25 @@ def load_rqc_data(qubit_list = [4,4,6,6,8,8,10],
         everything['type']=everything['type'].str.replace('_LinGrow','')
         everything.to_pickle("./RQC_runs/checkpoint.pkl")
     return everything
-def filter_rqc_data(df):
+def filter_rqc_data(df,budgets=[10**5,10**6,10**7,10**8,10**9,10**10,10**11,0]):
     if Path('./RQC_runs/filtered_data.pkl').is_file():
         filtered_rqc=pd.read_pickle('./RQC_runs/filtered_data.pkl') 
     else:
-        rqc_half_df = filter_budget(df.query('description=="3nlsp_half"'),[0,10**5,10**6,10**7,10**8,10**9,10**10,10**11],50)
+        rqc_half_df = filter_budget(df.query('description=="3nlsp_half"'),budgets,50)
         rqc_half_df['volume'] = rqc_half_df.depth*rqc_half_df.Qubits*rqc_half_df.Qubits
         rqc_half_df["g"] = rqc_half_df.depth//rqc_half_df.Qubits
-        rqc_full_df = filter_budget(df.query('description=="3nlsp_full"'),[0,10**5,10**6,10**7,10**8,10**9,10**10,10**11],100)
+        
+        rqc_full_df = filter_budget(df.query('description=="3nlsp_full"'),budgets,100)
         rqc_full_df['volume'] = rqc_full_df.depth*rqc_full_df.Qubits*rqc_full_df.Qubits
         rqc_full_df["g"] = rqc_full_df.depth//rqc_full_df.Qubits
         filtered_rqc = pd.concat([rqc_full_df,rqc_half_df])
         filtered_rqc.to_pickle('./RQC_runs/filtered_data.pkl')
     return filtered_rqc
         
-def figure_3(df,statistic_to_plot='mean',qubit=4):
+def figure_3(df,statistic_to_plot='mean',qubit=4,training='half'):
     """Plots figure 3, which is the performance of the techniques over budget. This is extended in the sense that it can return
     all qubit results in a panel."""
-    df = df.query(f'Qubits=={qubit} & description == "3nlsp_full"')
+    df = df.query(f'Qubits=={qubit} & description == "3nlsp_{training}"')
 
     zero_copy_methods = df.query(
         'abs_error > 0  & copies == 1 & nlsp==1  & res_type=="abs_error" & ( type == "ZNE" )'
@@ -528,12 +529,12 @@ def figure_3(df,statistic_to_plot='mean',qubit=4):
         markers=True,
         ci=None).set(xscale='log',yscale='log')
 
-def figure_2(df,statistic_to_plot='mean',like_paper=True):
+def figure_2(df,statistic_to_plot='mean',like_paper=True,g=1):
     """"Plot figure 2 from the paper, which is the absoulte error over qubits at different budgets."""
     if like_paper:
-        df = df.query('budget>0&budget<10**11&budget!=10**9&budget!=10**7')
+        df = df.query(f'budget>10**4&budget<10**11&budget!=10**9&budget!=10**7 & g=={g}')
     else: # Basically will show all computed budgets
-        df = df.query('budget>0&budget<10**11')
+        df = df.query(f'budget>10**4&budget<10**11&g=={g}')
     zero_copy_methods = df.query(
         'abs_error > 0  & copies == 1 & nlsp==1 & description == "3nlsp_half" & res_type=="abs_error" & ( type == "ZNE" | type == "vnCDR")'
     )
@@ -595,10 +596,10 @@ def figure_7(df, budget=10**10, statistic_to_plot='mean'):
     """Plots figure 7 for any budget"""
     df = df.query(f'budget=={budget}')
     few_copy_methods = df.query(
-        'abs_error >  0  & nlsp==1  & description == "3nlsp_full" & res_type=="abs_error" & ( type=="VD")'
+        'abs_error >  0  & nlsp==1  & description == "3nlsp_half" & res_type=="abs_error" & ( type=="VD")'
     )
     many_copy_methods = df.query(
-        'abs_error > 0  &nlsp==1  & description == "3nlsp_full" & res_type=="abs_error" & ( type=="UNITED")'
+        'abs_error > 0  &nlsp==1  & description == "3nlsp_half" & res_type=="abs_error" & ( type=="UNITED")'
     )
     plot_df = pd.concat(
         [few_copy_methods, many_copy_methods],
