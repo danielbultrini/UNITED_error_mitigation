@@ -493,7 +493,9 @@ def figure_5(df,statistic_to_plot='mean'):
         estimator=statistic_to_plot,
         markers=True,
         ci=None,
-    ).set(yscale="log", xscale="log")
+    )
+    fig.set(yscale="log", xscale="log")
+    fig.set_ylabels(statistic_to_plot+' of absolute error')
     ax = fig.axes[0]
     xticks = ax.get_xticks().tolist()
     for i in range(len(xticks) - 1):
@@ -503,7 +505,7 @@ def figure_5(df,statistic_to_plot='mean'):
     ax.set_xticklabels(xticks)
     return fig
 
-def figure_4(df,statistic_to_plot='mean',like_paper=True):
+def figure_4(maxcut_df,statistic_to_plot='mean',like_paper=True):
     """"Plot figure 5 from the paper, which is the absoulte error over qubits at different budgets."""
     if like_paper:
         df = maxcut_df.query('budget>0&budget<10**11&budget!=10**9&budget!=10**7')
@@ -538,7 +540,9 @@ def figure_4(df,statistic_to_plot='mean',like_paper=True):
         estimator=statistic_to_plot,
         markers=True,
         ci=None,
-    ).set(yscale="log", xscale='log')
+    )
+    fig.set_ylabels(statistic_to_plot+' of absolute error')
+    fig.set(yscale="log")
     return fig
 
 def load_all_data():
@@ -546,3 +550,71 @@ def load_all_data():
     maxcut_df = pd.concat(results.values())
     maxcut_df = clean_data(maxcut_df)
     return maxcut_df
+
+def load_unfiltered_data():
+    dfs=[]
+    for i in [4,6,8,10]:
+        dfs.append(pd.read_pickle(f'./MaxCut_runs/full_data_MC{i}.pkl'))
+    return pd.concat(dfs).reset_index()
+
+def load_raw_maxcut_data():
+    """Returns a dictionary of the coi data and training data with indices 'coi' and 'train'."""
+    import os 
+    
+    def quick_load(fi, dir_path):
+        res = []
+        files = []
+        for file in os.listdir(dir_path):
+            if file.endswith('.pkl') and file.startswith(f"pandas_{fi}"):
+                res.append(pd.read_pickle(dir_path+file).assign(file=file).assign(data=fi))
+                files.append(file)
+        res = pd.concat(res)
+        res=res.reset_index()
+        res = res.reset_index().query('copies==1 & nlsp==1')
+        res = res.drop(['shots','result_type','copies'],axis=1)
+        res["exact"] = pd.to_numeric(res['exact'])
+        res["expectation"] = pd.to_numeric(res['expectation'])
+        res["exact_abs"] = np.abs(res['exact'])
+        return res
+    
+    train = []
+    coi = []
+    for i in [4,6,8,10]:
+        path = f'./MaxCut_runs/Q{i}/'
+        train.append(quick_load('train',path).assign(qubit=i))
+        coi.append(quick_load('COI',path).assign(qubit=i))
+    train = pd.concat(train).reset_index()
+    coi = pd.concat(coi).reset_index()
+    return {'coi':coi,'train':train}
+
+def figure_7(df, budget=10**10, statistic_to_plot='mean'):
+    """Plots figure 7 for any budget"""
+    df = df.query(f'budget=={budget}')
+    few_copy_methods = df.query(
+        'abs_error >  0  & nlsp==1  & description == "3nlsp_full" & res_type=="abs_error" & ( type=="VD")'
+    )
+    many_copy_methods = df.query(
+        'abs_error > 0  &nlsp==1  & description == "3nlsp_full" & res_type=="abs_error" & ( type=="UNITED")'
+    )
+    plot_df = pd.concat(
+        [few_copy_methods, many_copy_methods],
+        axis=0,
+        ignore_index=True,
+    )
+    fig = sns.relplot(
+        data=plot_df.reset_index(),
+        kind="line",
+        x="copies",
+        y="abs_error",
+        hue="Qubits",
+        style='type',
+        estimator=statistic_to_plot,
+        ci=None,
+    )
+    fig.set(yscale='log',title=f'budget {budget}')
+    fig.set_ylabels(statistic_to_plot+' of absolute error')
+    return fig
+    
+def figure_8(coi,train,qubit=4):
+    """Plots the disctibution of training data and circuit of interest for desired qubit"""
+    sns.displot(kind='hist',data=pd.concat([coi,train]).query(f"qubit=={qubit}").reset_index(),x='exact',col='data',col_wrap=4,bins=25,facet_kws=dict(sharey=True)).set(yscale='log')
