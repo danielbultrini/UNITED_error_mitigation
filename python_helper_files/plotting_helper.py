@@ -3,11 +3,36 @@ import seaborn as sns
 from post_processing_multi import *
 
 tags = [""]
-#predefined budgets
+# predefined budgets
 budget_shots = [
     [None],
-    {50000, 1000, 333, 500, 250, 166, 125, 100, 83, 55, 41, 33, 27,
-    500000, 10000, 3333, 5000, 2500, 1666, 1250, 1000, 833, 555, 416, 333, 277,
+    {
+        50000,
+        1000,
+        333,
+        500,
+        250,
+        166,
+        125,
+        100,
+        83,
+        55,
+        41,
+        33,
+        27,
+        500000,
+        10000,
+        3333,
+        5000,
+        2500,
+        1666,
+        1250,
+        1000,
+        833,
+        555,
+        416,
+        333,
+        277,
         5000000,
         100000,
         33333,
@@ -62,6 +87,7 @@ budget_shots = [
         2777777,
     },
 ]
+
 
 def relative_shots(training_sets, noise_levels, max_copies, shots_budget):
     """Returns relative shots with less shots for COI when shots budget is high enough.
@@ -292,19 +318,22 @@ def load_multiple_files(
 
     return dfs_absolute_error, dfs_error_rescaling, dfs_standard_values
 
+
 def clean_data(maxcut_df):
     """cleans up data and assigns noisy data label to appropiate data,
     also puts converged values in appropiate places. This is just the high
     budget ZNE and Noisy values that converged already to infinity at 10**5."""
-    noisy = maxcut_df.query('abs_error > 0  & copies == 1 & nlsp==1 & res_type=="abs_error" & ( type=="VD")')
+    noisy = maxcut_df.query(
+        'abs_error > 0  & copies == 1 & nlsp==1 & res_type=="abs_error" & ( type=="VD")'
+    )
     noisy["type"] = "noisy"
     extra = maxcut_df.query('Qubits==4&budget==10**12&(type=="VD"|type=="ZNE")')
     extra_vd = maxcut_df.query('budget==10**12& type=="VD" & copies==1')
-    extra_noise= maxcut_df.query('budget==10**12& type=="VD" & copies==1')
-    extra_vd['budget']=10**10
-    extra['budget']=10**10
-    extra_noise['budget']=10**9
-    return pd.concat([maxcut_df,extra,extra_vd,extra_noise])
+    extra_noise = maxcut_df.query('budget==10**12& type=="VD" & copies==1')
+    extra_vd["budget"] = 10 ** 10
+    extra["budget"] = 10 ** 10
+    extra_noise["budget"] = 10 ** 9
+    return pd.concat([maxcut_df, extra, extra_vd, extra_noise])
 
 
 def load_multiple_files_budget(
@@ -422,18 +451,18 @@ def filter_budget(df, budgets, training=100, max_copies=6, noise_levels=3):
                 ).assign(budget=budget)
             filtered_dfs.append(df_temp_abs)
     filtered_dfs = pd.concat(filtered_dfs)
-    
+
     return filtered_dfs
 
-def load_max_cut_data(qubit_number:int, training_set=100):
+
+def load_max_cut_data(qubit_number: int, training_set=100):
     from pathlib import Path
+
     if Path("./MaxCut_runs/full_data_MC{qubit_number}.pkl").is_file():
-        Q=pd.read_pickle(f'./MaxCut_runs/full_data_MC{qubit_number}.pkl') 
+        Q = pd.read_pickle(f"./MaxCut_runs/full_data_MC{qubit_number}.pkl")
     else:
         base_folder = f"./MaxCut_runs/Q{qubit_number}/"
-        folders = [
-            base_folder + ""
-        ]  
+        folders = [base_folder + ""]
         tags = [""]
         Q, _, _ = load_multiple_files_budget(
             [qubit_number],
@@ -453,15 +482,22 @@ def load_max_cut_data(qubit_number:int, training_set=100):
         )
 
         Q = Q.assign(description="3nlsp_full")
-        Q.to_pickle(f'./MaxCut_runs/full_data_MC{qubit_number}.pkl')
-    Q_filtered = filter_budget(Q,[0,10**5,10**6,10**7,10**8,10**9,10**10],100).drop(['shots'],axis=1).query("abs_error>0")
-    
+        Q.to_pickle(f"./MaxCut_runs/full_data_MC{qubit_number}.pkl")
+    Q_filtered = (
+        filter_budget(
+            Q, [0, 10 ** 5, 10 ** 6, 10 ** 7, 10 ** 8, 10 ** 9, 10 ** 10], 100
+        )
+        .drop(["shots"], axis=1)
+        .query("abs_error>0")
+    )
+
     ###
-    Q_filtered.loc[Q_filtered["budget"] == 0, "budget"] = 10**12  
+    Q_filtered.loc[Q_filtered["budget"] == 0, "budget"] = 10 ** 12
     ### Only done for plotting purposes, so that infinity is at the end of the plot rather than the start
     return Q_filtered
 
-def figure_5(df,statistic_to_plot='mean'):
+
+def figure_5(df, statistic_to_plot="mean"):
     """Plots figure five, which is the performance of the techniques over budget. This is extended in the sense that it returns
     all qubit results in a panel."""
     zero_copy_methods = df.query(
@@ -489,13 +525,13 @@ def figure_5(df,statistic_to_plot='mean'):
         y="abs_error",
         hue="type",
         col="Qubits",
-        col_wrap = 2,
+        col_wrap=2,
         estimator=statistic_to_plot,
         markers=True,
         ci=None,
     )
     fig.set(yscale="log", xscale="log")
-    fig.set_ylabels(statistic_to_plot+' of absolute error')
+    fig.set_ylabels(statistic_to_plot + " of absolute error")
     ax = fig.axes[0]
     xticks = ax.get_xticks().tolist()
     for i in range(len(xticks) - 1):
@@ -505,12 +541,13 @@ def figure_5(df,statistic_to_plot='mean'):
     ax.set_xticklabels(xticks)
     return fig
 
-def figure_4(maxcut_df,statistic_to_plot='mean',like_paper=True):
+
+def figure_4(maxcut_df, statistic_to_plot="mean", like_paper=True):
     """"Plot figure 5 from the paper, which is the absoulte error over qubits at different budgets."""
     if like_paper:
-        df = maxcut_df.query('budget>0&budget<10**11&budget!=10**9&budget!=10**7')
-    else: # Basically will show all computed budgets
-        df = maxcut_df.query('budget>0&budget<10**11')
+        df = maxcut_df.query("budget>0&budget<10**11&budget!=10**9&budget!=10**7")
+    else:  # Basically will show all computed budgets
+        df = maxcut_df.query("budget>0&budget<10**11")
     zero_copy_methods = df.query(
         'abs_error > 0  & copies == 1 & nlsp==1 & description == "3nlsp_full" & res_type=="abs_error" & ( type == "ZNE" | type == "vnCDR")'
     )
@@ -533,7 +570,7 @@ def figure_4(maxcut_df,statistic_to_plot='mean',like_paper=True):
         data=plot_df.reset_index(),
         kind="line",
         x="Qubits",
-        col='budget',
+        col="budget",
         col_wrap=2,
         y="abs_error",
         hue="type",
@@ -541,55 +578,61 @@ def figure_4(maxcut_df,statistic_to_plot='mean',like_paper=True):
         markers=True,
         ci=None,
     )
-    fig.set_ylabels(statistic_to_plot+' of absolute error')
+    fig.set_ylabels(statistic_to_plot + " of absolute error")
     fig.set(yscale="log")
     return fig
 
+
 def load_all_data():
-    results = {qubit:load_max_cut_data(qubit) for qubit in [4,6,8,10]}
+    results = {qubit: load_max_cut_data(qubit) for qubit in [4, 6, 8, 10]}
     maxcut_df = pd.concat(results.values())
     maxcut_df = clean_data(maxcut_df)
     return maxcut_df
 
+
 def load_unfiltered_data():
-    dfs=[]
-    for i in [4,6,8,10]:
-        dfs.append(pd.read_pickle(f'./MaxCut_runs/full_data_MC{i}.pkl'))
+    dfs = []
+    for i in [4, 6, 8, 10]:
+        dfs.append(pd.read_pickle(f"./MaxCut_runs/full_data_MC{i}.pkl"))
     return pd.concat(dfs).reset_index()
+
 
 def load_raw_maxcut_data():
     """Returns a dictionary of the coi data and training data with indices 'coi' and 'train'."""
-    import os 
-    
+    import os
+
     def quick_load(fi, dir_path):
         res = []
         files = []
         for file in os.listdir(dir_path):
-            if file.endswith('.pkl') and file.startswith(f"pandas_{fi}"):
-                res.append(pd.read_pickle(dir_path+file).assign(file=file).assign(data=fi))
+            if file.endswith(".pkl") and file.startswith(f"pandas_{fi}"):
+                res.append(
+                    pd.read_pickle(dir_path + file).assign(file=file).assign(data=fi)
+                )
                 files.append(file)
         res = pd.concat(res)
-        res=res.reset_index()
         res = res.reset_index()
-        res = res.drop(['result_type'],axis=1)
-        res["exact"] = pd.to_numeric(res['exact'])
-        res["expectation"] = pd.to_numeric(res['expectation'])
-        res["exact_abs"] = np.abs(res['exact'])
+        res = res.reset_index()
+        res = res.drop(["result_type"], axis=1)
+        res["exact"] = pd.to_numeric(res["exact"])
+        res["expectation"] = pd.to_numeric(res["expectation"])
+        res["exact_abs"] = np.abs(res["exact"])
         return res
-    
+
     train = []
     coi = []
-    for i in [4,6,8,10]:
-        path = f'./MaxCut_runs/Q{i}/'
-        train.append(quick_load('train',path))
-        coi.append(quick_load('COI',path))
-    train = pd.concat(train).reset_index().drop('level_0',axis=1)
-    coi = pd.concat(coi).reset_index().drop('level_0',axis=1)
-    return {'coi':coi,'train':train}
+    for i in [4, 6, 8, 10]:
+        path = f"./MaxCut_runs/Q{i}/"
+        train.append(quick_load("train", path))
+        coi.append(quick_load("COI", path))
+    train = pd.concat(train).reset_index().drop("level_0", axis=1)
+    coi = pd.concat(coi).reset_index().drop("level_0", axis=1)
+    return {"coi": coi, "train": train}
 
-def figure_7(df, budget=10**10, statistic_to_plot='mean'):
+
+def figure_7(df, budget=10 ** 10, statistic_to_plot="mean"):
     """Plots figure 7 for any budget"""
-    df = df.query(f'budget=={budget}')
+    df = df.query(f"budget=={budget}")
     few_copy_methods = df.query(
         'abs_error >  0  & nlsp==1  & description == "3nlsp_full" & res_type=="abs_error" & ( type=="VD")'
     )
@@ -597,9 +640,7 @@ def figure_7(df, budget=10**10, statistic_to_plot='mean'):
         'abs_error > 0  &nlsp==1  & description == "3nlsp_full" & res_type=="abs_error" & ( type=="UNITED")'
     )
     plot_df = pd.concat(
-        [few_copy_methods, many_copy_methods],
-        axis=0,
-        ignore_index=True,
+        [few_copy_methods, many_copy_methods], axis=0, ignore_index=True,
     )
     fig = sns.relplot(
         data=plot_df.reset_index(),
@@ -607,14 +648,23 @@ def figure_7(df, budget=10**10, statistic_to_plot='mean'):
         x="copies",
         y="abs_error",
         hue="Qubits",
-        style='type',
+        style="type",
         estimator=statistic_to_plot,
         ci=None,
     )
-    fig.set(yscale='log',title=f'budget {budget}')
-    fig.set_ylabels(statistic_to_plot+' of absolute error')
+    fig.set(yscale="log", title=f"budget {budget}")
+    fig.set_ylabels(statistic_to_plot + " of absolute error")
     return fig
-    
+
+
 def figure_8(dataset):
     """Plots the disctibution of training data and circuit of interest for desired qubit"""
-    sns.displot(kind='hist',data=dataset,x='exact',col='qubits',col_wrap=2,bins=25,facet_kws=dict(sharey=True)).set(yscale='log')
+    sns.displot(
+        kind="hist",
+        data=dataset,
+        x="exact",
+        col="qubits",
+        col_wrap=2,
+        bins=25,
+        facet_kws=dict(sharey=True),
+    ).set(yscale="log")

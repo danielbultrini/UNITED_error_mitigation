@@ -57,7 +57,7 @@ def missing_file_checker(
     shots=test_budgets,
     folder="./results/",
     train=True,
-    budgets=[0, 10**5, 10**6, 10**7, 10**8],
+    budgets=[0, 10 ** 5, 10 ** 6, 10 ** 7, 10 ** 8],
 ):
     """Generates a list of missing files per budget.
 

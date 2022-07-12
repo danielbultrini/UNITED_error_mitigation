@@ -299,9 +299,7 @@ class VD_CDR:
                                 p0p_train = np.ones((self.train_use, 5))
 
                             coi_obsex_ = coi_data["coi_data"][0][0]
-                            coi_obsm_ = coi_data["coi_data"][0][
-                                1
-                            ]  
+                            coi_obsm_ = coi_data["coi_data"][0][1]
                             p0_coi = coi_data["coi_data"][0][2]
                             p0p_coi = coi_data["coi_data"][0][3]
 
@@ -818,11 +816,11 @@ class VD_CDR:
         """
         maskX = np.logical_or(
             np.isnan(training_data_real), ~np.isfinite(training_data_real)
-        )  
+        )
         maskY = np.logical_or(
             np.logical_or(np.array(maskX, dtype=bool), np.isnan(training_data_sim)),
             ~np.isfinite(training_data_sim),
-        ) 
+        )
         X_train = np.delete(training_data_real, maskY, axis=0)
         y_train = np.delete(training_data_sim, maskY, axis=0)
         reg = linear_model.LinearRegression(fit_intercept=True)
@@ -834,13 +832,13 @@ class VD_CDR:
     def vnCDRMitigation(self, circ_data, training_data_real, training_data_sim):
         maskX = np.logical_or(
             np.isnan(training_data_real), ~np.isfinite(training_data_real)
-        )  
+        )
         maskY = np.logical_or(
             np.logical_or(
                 np.array(maskX.sum(1), dtype=bool), np.isnan(training_data_sim)
             ),
             ~np.isfinite(training_data_sim),
-        )  
+        )
         X_train = np.delete(training_data_real, maskY, axis=0)
         y_train = np.delete(training_data_sim, maskY, axis=0)
         reg = linear_model.LinearRegression(fit_intercept=True)

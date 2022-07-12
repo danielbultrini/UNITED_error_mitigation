@@ -4,11 +4,36 @@ from pathlib import Path
 from post_processing_multi import *
 
 tags = [""]
-#predefined budgets
+# predefined budgets
 budget_shots = [
     [None],
-    {50000, 1000, 333, 500, 250, 166, 125, 100, 83, 55, 41, 33, 27,
-    500000, 10000, 3333, 5000, 2500, 1666, 1250, 1000, 833, 555, 416, 333, 277,
+    {
+        50000,
+        1000,
+        333,
+        500,
+        250,
+        166,
+        125,
+        100,
+        83,
+        55,
+        41,
+        33,
+        27,
+        500000,
+        10000,
+        3333,
+        5000,
+        2500,
+        1666,
+        1250,
+        1000,
+        833,
+        555,
+        416,
+        333,
+        277,
         5000000,
         100000,
         33333,
@@ -63,6 +88,8 @@ budget_shots = [
         2777777,
     },
 ]
+
+
 def relative_shots(training_sets, noise_levels, max_copies, shots_budget):
     """Returns relative shots with less shots for COI when shots budget is high enough.
 
@@ -76,28 +103,42 @@ def relative_shots(training_sets, noise_levels, max_copies, shots_budget):
         pandas DF: dataframe with shot budgets
     """
     if shots_budget != 0:
-        CDR_shots =  shots_budget//training_sets
-        vnCDR_shots = CDR_shots//noise_levels
-        CGVD_shots =  shots_budget//training_sets
-        storage = pd.DataFrame({
-            "VD":[shots_budget//2]*(max_copies),
-            "ZNE":[shots_budget//2]+[shots_budget//4]*(max_copies-1),
-            "CDR":[CDR_shots]+[CDR_shots//2]*(max_copies-1),
-            "vnCDR":[vnCDR_shots]*(max_copies),
-            "CGVD":[base_cost//(copy+1)//2 for copy,base_cost in enumerate([CGVD_shots]*(max_copies))],
-            "UNITED":[x//noise_levels//2 for x in [base_cost//(copy+1) for copy,base_cost in enumerate([CGVD_shots]*(max_copies))]],
-            "copies":list(range(1,max_copies+1))
-        })
-    else:        
-        storage = pd.DataFrame({
-            "VD":None,
-            "ZNE":None,
-            "CDR":[None]*6,
-            "vnCDR":[None]*6,
-            "CGVD":[None]*6,
-            "UNITED":[None]*6,
-            "copies":list(range(1,max_copies+1))})
-    return pd.melt(storage,id_vars=('copies'))
+        CDR_shots = shots_budget // training_sets
+        vnCDR_shots = CDR_shots // noise_levels
+        CGVD_shots = shots_budget // training_sets
+        storage = pd.DataFrame(
+            {
+                "VD": [shots_budget // 2] * (max_copies),
+                "ZNE": [shots_budget // 2] + [shots_budget // 4] * (max_copies - 1),
+                "CDR": [CDR_shots] + [CDR_shots // 2] * (max_copies - 1),
+                "vnCDR": [vnCDR_shots] * (max_copies),
+                "CGVD": [
+                    base_cost // (copy + 1) // 2
+                    for copy, base_cost in enumerate([CGVD_shots] * (max_copies))
+                ],
+                "UNITED": [
+                    x // noise_levels // 2
+                    for x in [
+                        base_cost // (copy + 1)
+                        for copy, base_cost in enumerate([CGVD_shots] * (max_copies))
+                    ]
+                ],
+                "copies": list(range(1, max_copies + 1)),
+            }
+        )
+    else:
+        storage = pd.DataFrame(
+            {
+                "VD": None,
+                "ZNE": None,
+                "CDR": [None] * 6,
+                "vnCDR": [None] * 6,
+                "CGVD": [None] * 6,
+                "UNITED": [None] * 6,
+                "copies": list(range(1, max_copies + 1)),
+            }
+        )
+    return pd.melt(storage, id_vars=("copies"))
 
 
 def relative_shots_table(
@@ -117,7 +158,7 @@ def relative_shots_table(
         pandas DF: dataframe with shot budgets
         ratio: adjusted budget from full
     """
-    ratio = int(shots_budget//int((100//training_sets)*(max_copies-1)))
+    ratio = int(shots_budget // int((100 // training_sets) * (max_copies - 1)))
     if shots_budget != 0:
         CDR_shots = shots_budget // training_sets
         vnCDR_shots = CDR_shots // noise_levels
@@ -383,18 +424,24 @@ def filter_budget(df, budgets, training=100, max_copies=6, noise_levels=3):
 
     filtered_dfs = []
     for budget_i, budget in enumerate(budgets):
-        shot_budget = relative_shots(100,3,6,budget)
+        shot_budget = relative_shots(100, 3, 6, budget)
         for deets in shot_budget.iterrows():
-            copy_no   = deets[1][0]
+            copy_no = deets[1][0]
             technique = deets[1][1]
             allowance = deets[1][2]
-            if budget ==0:
-                df_temp_abs = df.query(f'budget=={budget} & type.str.startswith("{technique}") & copies == {copy_no}')
+            if budget == 0:
+                df_temp_abs = df.query(
+                    f'budget=={budget} & type.str.startswith("{technique}") & copies == {copy_no}'
+                )
             else:
-                if (technique == "UNITED" or technique == "vnCDR") and training==50:
-                    df_temp_abs = df.query(f'shots == {allowance} & type.str.startswith("{technique}") & copies == {copy_no}').assign(budget=compute_ratio(budget))
+                if (technique == "UNITED" or technique == "vnCDR") and training == 50:
+                    df_temp_abs = df.query(
+                        f'shots == {allowance} & type.str.startswith("{technique}") & copies == {copy_no}'
+                    ).assign(budget=compute_ratio(budget))
                 else:
-                    df_temp_abs = df.query(f'shots == {allowance} & type.str.startswith("{technique}") & copies == {copy_no}').assign(budget=budget)
+                    df_temp_abs = df.query(
+                        f'shots == {allowance} & type.str.startswith("{technique}") & copies == {copy_no}'
+                    ).assign(budget=budget)
             filtered_dfs.append(df_temp_abs)
     filtered_dfs = pd.concat(filtered_dfs)
     return filtered_dfs
@@ -426,7 +473,7 @@ def plot_over_budget(df):
         y="abs_error",
         hue="type",
         col="Qubits",
-        col_wrap = 2,
+        col_wrap=2,
         style="copies",
         estimator="mean",
         markers=True,
@@ -441,58 +488,184 @@ def plot_over_budget(df):
     ax.set_xticklabels(xticks)
     return fig
 
-def compute_ratio(budget):
-    table,ratio = relative_shots_table(50,3,6,budget,1)
-    return ratio
-    
 
-def load_rqc_data(qubit_list = [4,4,6,6,8,8,10],
-        depths = [4,4*16,6,6*16,8,8*16,10]
+def compute_ratio(budget):
+    table, ratio = relative_shots_table(50, 3, 6, budget, 1)
+    return ratio
+
+
+def load_rqc_data(
+    qubit_list=[4, 4, 6, 6, 8, 8, 10], depths=[4, 4 * 16, 6, 6 * 16, 8, 8 * 16, 10]
 ):
     if Path("./RQC_runs/checkpoint.pkl").is_file():
-        everything=pd.read_pickle("./RQC_runs/checkpoint.pkl") 
+        everything = pd.read_pickle("./RQC_runs/checkpoint.pkl")
     else:
         base_folder = "./RQC_runs/all_qubits/"
         folders = [base_folder]
-        tags = ['_LinGrow']
-        budgies = [ [None],
-                    {50000,  1000,   333,   500,   250,   166,   125,   100,    83, 55,    41,    33,    27,
-                    500000,  10000,   3333,   5000,   2500,   1666,   1250,   1000, 833,    555,    416,    333,    277,
-                    5000000,  100000,   33333,   50000,   25000,   16666,   12500, 10000,    8333,    5555,    4166,    3333,    2777 ,
-                    50000000,  1000000,   333333,   500000,   250000,   166666, 125000,   100000,    83333,    55555,    41666,    33333, 27777,
-                    500000000,  10000000,   3333333,   5000000,   2500000,   1666666, 1250000,   1000000,    833333,    555555,    416666,    333333, 277777,
-                    10000000000, 5000000000,  100000000,   33333333,   50000000,   25000000,   16666666, 12500000,   10000000,    8333333,    5555555,    4166666,    3333333, 2777777,
-                    50000000000,  1000000000,   333333333,   500000000,   250000000,   166666666, 125000000,   100000000,    83333333,    55555555,    41666666,    33333333, 27777777,
-                    }]
-        qubit_list = [4,4,6,6,8,8,10]
-        depths = [4,4*16,6,6*16,8,8*16,10]
-        budge_abs,budge_res,budge_val = load_multiple_files_budget(qubit_list,depths,30,nlsp_list = [1,2,3],N=10,Nts=100,max_copies=6,tags=tags,
-                                    density_matrices = False,shots=budgies,folders = folders,train=True,budgets=[0,5],train_use=100)
+        tags = ["_LinGrow"]
+        budgies = [
+            [None],
+            {
+                50000,
+                1000,
+                333,
+                500,
+                250,
+                166,
+                125,
+                100,
+                83,
+                55,
+                41,
+                33,
+                27,
+                500000,
+                10000,
+                3333,
+                5000,
+                2500,
+                1666,
+                1250,
+                1000,
+                833,
+                555,
+                416,
+                333,
+                277,
+                5000000,
+                100000,
+                33333,
+                50000,
+                25000,
+                16666,
+                12500,
+                10000,
+                8333,
+                5555,
+                4166,
+                3333,
+                2777,
+                50000000,
+                1000000,
+                333333,
+                500000,
+                250000,
+                166666,
+                125000,
+                100000,
+                83333,
+                55555,
+                41666,
+                33333,
+                27777,
+                500000000,
+                10000000,
+                3333333,
+                5000000,
+                2500000,
+                1666666,
+                1250000,
+                1000000,
+                833333,
+                555555,
+                416666,
+                333333,
+                277777,
+                10000000000,
+                5000000000,
+                100000000,
+                33333333,
+                50000000,
+                25000000,
+                16666666,
+                12500000,
+                10000000,
+                8333333,
+                5555555,
+                4166666,
+                3333333,
+                2777777,
+                50000000000,
+                1000000000,
+                333333333,
+                500000000,
+                250000000,
+                166666666,
+                125000000,
+                100000000,
+                83333333,
+                55555555,
+                41666666,
+                33333333,
+                27777777,
+            },
+        ]
+        qubit_list = [4, 4, 6, 6, 8, 8, 10]
+        depths = [4, 4 * 16, 6, 6 * 16, 8, 8 * 16, 10]
+        budge_abs, budge_res, budge_val = load_multiple_files_budget(
+            qubit_list,
+            depths,
+            30,
+            nlsp_list=[1, 2, 3],
+            N=10,
+            Nts=100,
+            max_copies=6,
+            tags=tags,
+            density_matrices=False,
+            shots=budgies,
+            folders=folders,
+            train=True,
+            budgets=[0, 5],
+            train_use=100,
+        )
         NLSP3FULL_abs = budge_abs
-        NLSP3HALF_abs  ,_,_ = load_multiple_files_budget(qubit_list,depths,30,nlsp_list = [1,2,3],N=10,Nts=100,max_copies=6,tags=tags,
-                                    density_matrices = False,shots=budgies,folders = folders,train=True,budgets=[0,5],train_use=50) 
-        NLSP3FULL_abs  = NLSP3FULL_abs.assign(description =  '3nlsp_full')
-        NLSP3HALF_abs  = NLSP3HALF_abs.assign(description =  '3nlsp_half')
-        everything= pd.concat([NLSP3FULL_abs,NLSP3HALF_abs])
-        everything['type']=everything['type'].str.replace('_LinGrow','')
+        NLSP3HALF_abs, _, _ = load_multiple_files_budget(
+            qubit_list,
+            depths,
+            30,
+            nlsp_list=[1, 2, 3],
+            N=10,
+            Nts=100,
+            max_copies=6,
+            tags=tags,
+            density_matrices=False,
+            shots=budgies,
+            folders=folders,
+            train=True,
+            budgets=[0, 5],
+            train_use=50,
+        )
+        NLSP3FULL_abs = NLSP3FULL_abs.assign(description="3nlsp_full")
+        NLSP3HALF_abs = NLSP3HALF_abs.assign(description="3nlsp_half")
+        everything = pd.concat([NLSP3FULL_abs, NLSP3HALF_abs])
+        everything["type"] = everything["type"].str.replace("_LinGrow", "")
         everything.to_pickle("./RQC_runs/checkpoint.pkl")
     return everything
-def filter_rqc_data(df,budgets=[10**5,10**6,10**7,10**8,10**9,10**10,10**11,0]):
-    if Path('./RQC_runs/filtered_data.pkl').is_file():
-        filtered_rqc=pd.read_pickle('./RQC_runs/filtered_data.pkl') 
+
+
+def filter_rqc_data(
+    df, budgets=[10 ** 5, 10 ** 6, 10 ** 7, 10 ** 8, 10 ** 9, 10 ** 10, 10 ** 11, 0]
+):
+    if Path("./RQC_runs/filtered_data.pkl").is_file():
+        filtered_rqc = pd.read_pickle("./RQC_runs/filtered_data.pkl")
     else:
-        rqc_half_df = filter_budget(df.query('description=="3nlsp_half"'),budgets,50)
-        rqc_half_df['volume'] = rqc_half_df.depth*rqc_half_df.Qubits*rqc_half_df.Qubits
-        rqc_half_df["g"] = rqc_half_df.depth//rqc_half_df.Qubits
-        
-        rqc_full_df = filter_budget(df.query('description=="3nlsp_full"'),budgets,100)
-        rqc_full_df['volume'] = rqc_full_df.depth*rqc_full_df.Qubits*rqc_full_df.Qubits
-        rqc_full_df["g"] = rqc_full_df.depth//rqc_full_df.Qubits
-        filtered_rqc = pd.concat([rqc_full_df,rqc_half_df])
-        filtered_rqc.to_pickle('./RQC_runs/filtered_data.pkl')
+        rqc_half_df = filter_budget(df.query('description=="3nlsp_half"'), budgets, 50)
+        rqc_half_df["volume"] = (
+            rqc_half_df.depth * rqc_half_df.Qubits * rqc_half_df.Qubits
+        )
+        rqc_half_df["g"] = rqc_half_df.depth // rqc_half_df.Qubits
+
+        rqc_full_df = filter_budget(df.query('description=="3nlsp_full"'), budgets, 100)
+        rqc_full_df["volume"] = (
+            rqc_full_df.depth * rqc_full_df.Qubits * rqc_full_df.Qubits
+        )
+        rqc_full_df["g"] = rqc_full_df.depth // rqc_full_df.Qubits
+        filtered_rqc = pd.concat([rqc_full_df, rqc_half_df])
+        filtered_rqc.to_pickle("./RQC_runs/filtered_data.pkl")
     return filtered_rqc
-        
-def figure_3(df,statistic_to_plot='mean',qubit=4,training='half'):
+
+
+def figure_3(df, statistic_to_plot="mean", qubit=4, training="half"):
     """Plots figure 3, which is the performance of the techniques over budget. This is extended in the sense that it can return
     all qubit results in a panel."""
     df = df.query(f'Qubits=={qubit} & description == "3nlsp_{training}"')
@@ -500,7 +673,9 @@ def figure_3(df,statistic_to_plot='mean',qubit=4,training='half'):
     zero_copy_methods = df.query(
         'abs_error > 0  & copies == 1 & nlsp==1  & res_type=="abs_error" & ( type == "ZNE" )'
     )
-    vnCDR = df.query('type == "vnCDR"&abs_error > 0  & copies == 1 & nlsp==1  & res_type=="abs_error"')
+    vnCDR = df.query(
+        'type == "vnCDR"&abs_error > 0  & copies == 1 & nlsp==1  & res_type=="abs_error"'
+    )
     noisy = df.query(
         'abs_error > 0  & copies == 1 & nlsp==1 & res_type=="abs_error" & ( type=="VD")'
     )
@@ -513,28 +688,32 @@ def figure_3(df,statistic_to_plot='mean',qubit=4,training='half'):
 
     noisy["type"] = "noisy"
     plot_df = pd.concat(
-        [noisy, zero_copy_methods, few_copy_methods, many_copy_methods,vnCDR],
+        [noisy, zero_copy_methods, few_copy_methods, many_copy_methods, vnCDR],
         axis=0,
         ignore_index=True,
     )
     fig = sns.relplot(
-        data=plot_df.reset_index().query('budget>10**4&budget<10**11'),
+        data=plot_df.reset_index().query("budget>10**4&budget<10**11"),
         kind="line",
         x="budget",
         y="abs_error",
         hue="type",
         col="Qubits",
-        row = 'g',
+        row="g",
         estimator="mean",
         markers=True,
-        ci=None).set(xscale='log',yscale='log')
+        ci=None,
+    ).set(xscale="log", yscale="log")
 
-def figure_2(df,statistic_to_plot='mean',like_paper=True,g=1):
+
+def figure_2(df, statistic_to_plot="mean", like_paper=True, g=1):
     """"Plot figure 2 from the paper, which is the absoulte error over qubits at different budgets."""
     if like_paper:
-        df = df.query(f'budget>10**4&budget<10**11&budget!=10**9&budget!=10**7 & g=={g}')
-    else: # Basically will show all computed budgets
-        df = df.query(f'budget>10**4&budget<10**11&g=={g}')
+        df = df.query(
+            f"budget>10**4&budget<10**11&budget!=10**9&budget!=10**7 & g=={g}"
+        )
+    else:  # Basically will show all computed budgets
+        df = df.query(f"budget>10**4&budget<10**11&g=={g}")
     zero_copy_methods = df.query(
         'abs_error > 0  & copies == 1 & nlsp==1 & description == "3nlsp_half" & res_type=="abs_error" & ( type == "ZNE" | type == "vnCDR")'
     )
@@ -557,7 +736,7 @@ def figure_2(df,statistic_to_plot='mean',like_paper=True,g=1):
         data=plot_df.reset_index(),
         kind="line",
         x="Qubits",
-        col='budget',
+        col="budget",
         col_wrap=2,
         y="abs_error",
         hue="type",
@@ -566,76 +745,95 @@ def figure_2(df,statistic_to_plot='mean',like_paper=True,g=1):
         ci=None,
     )
     fig.set(yscale="log")
-    fig.set_ylabels(statistic_to_plot+' of absolute error')
+    fig.set_ylabels(statistic_to_plot + " of absolute error")
     return fig
+
 
 def load_raw_rqc_data():
     """Returns a dictionary of the coi data and training data with indices 'coi' and 'train'."""
-    import os 
-    dir_path = 'RQC_runs/all_qubits/'
-    def quick_load(fi,dir_path):
+    import os
+
+    dir_path = "RQC_runs/all_qubits/"
+
+    def quick_load(fi, dir_path):
         res = []
         files = []
         for file in os.listdir(dir_path):
-            if file.endswith('.pkl') and file.startswith(f"pandas_{fi}"):
-                res.append(pd.read_pickle(dir_path+file).assign(file=file).assign(data=fi).reset_index())
+            if file.endswith(".pkl") and file.startswith(f"pandas_{fi}"):
+                res.append(
+                    pd.read_pickle(dir_path + file)
+                    .assign(file=file)
+                    .assign(data=fi)
+                    .reset_index()
+                )
                 files.append(file)
         res = pd.concat(res)
-        res=res.reset_index()
         res = res.reset_index()
-        res = res.drop(['result_type'],axis=1)
-        res["exact"] = pd.to_numeric(res['exact'])
-        res["expectation"] = pd.to_numeric(res['expectation'])
-        res["exact_abs"] = np.abs(res['exact'])
+        res = res.reset_index()
+        res = res.drop(["result_type"], axis=1)
+        res["exact"] = pd.to_numeric(res["exact"])
+        res["expectation"] = pd.to_numeric(res["expectation"])
+        res["exact_abs"] = np.abs(res["exact"])
         return res
-    train = quick_load('train',dir_path)
-    coi = quick_load('COI',dir_path)
-    return {'coi':coi,'train':train}
 
-def figure_7(df, budget=10**10, statistic_to_plot='mean',g=1):
+    train = quick_load("train", dir_path)
+    coi = quick_load("COI", dir_path)
+    return {"coi": coi, "train": train}
+
+
+def figure_7(df, budget=10 ** 10, statistic_to_plot="mean", g=1):
     """Plots figure 7 for any budget and g value (depth scaling)"""
-    df = df.query(f'budget=={budget} & g=={g}')
+    df = df.query(f"budget=={budget} & g=={g}")
     few_copy_methods = df.query(
         'abs_error >  0  & nlsp==1  & description == "3nlsp_half" & res_type=="abs_error" & ( type=="VD")'
     )
     many_copy_methods = df.query(
         'abs_error > 0  &nlsp==1  & description == "3nlsp_half" & res_type=="abs_error" & ( type=="UNITED")'
     )
-    plot_df = pd.concat(
-        [few_copy_methods],
-        axis=0,
-        ignore_index=True,
-    )
+    plot_df = pd.concat([few_copy_methods], axis=0, ignore_index=True,)
     fig = sns.relplot(
         data=plot_df.reset_index(),
         kind="line",
         x="copies",
-        col='g',
+        col="g",
         y="abs_error",
         hue="Qubits",
-        style='type',
+        style="type",
         estimator=statistic_to_plot,
         ci=None,
     )
-    fig.set(yscale='log',title=f'budget {budget}')
-    fig.set_ylabels(statistic_to_plot+' of absolute error')
+    fig.set(yscale="log", title=f"budget {budget}")
+    fig.set_ylabels(statistic_to_plot + " of absolute error")
     return fig
 
-def figure_8(coi,train,qubit=4,depth=4,g=None):
+
+def figure_8(coi, train, qubit=4, depth=4, g=None):
     """Plots the disctibution of training data and circuit of interest for desired qubit"""
     if g is not None:
-        if g ==1 or g==16:
-            depth=int(qubit*g)
-        else: print("g value nonexistent")
+        if g == 1 or g == 16:
+            depth = int(qubit * g)
+        else:
+            print("g value nonexistent")
     npcoi = coi.query(f"file.str.contains('{qubit}p{depth}')")
     nptrain = train.query(f"file.str.contains('{qubit}p{depth}')")
-    sns.displot(kind='hist',data=pd.concat([npcoi,nptrain]),x='exact',col='file',col_wrap=4,bins=25,facet_kws=dict(sharey=True)).set(yscale='log')
-    
+    sns.displot(
+        kind="hist",
+        data=pd.concat([npcoi, nptrain]),
+        x="exact",
+        col="file",
+        col_wrap=4,
+        bins=25,
+        facet_kws=dict(sharey=True),
+    ).set(yscale="log")
+
+
 def effect_of_training_set(df):
     zero_copy_methods = df.query(
         'abs_error > 0  & copies == 1 & nlsp==1  & res_type=="abs_error" & ( type == "ZNE" )'
     )
-    vnCDR = df.query('type == "vnCDR"&abs_error > 0  & copies == 1 & nlsp==1  & res_type=="abs_error"')
+    vnCDR = df.query(
+        'type == "vnCDR"&abs_error > 0  & copies == 1 & nlsp==1  & res_type=="abs_error"'
+    )
     noisy = df.query(
         'abs_error > 0  & copies == 1 & nlsp==1 & res_type=="abs_error" & ( type=="VD")'
     )
@@ -645,21 +843,18 @@ def effect_of_training_set(df):
     many_copy_methods = df.query(
         'abs_error > 0  &nlsp==1  & copies==3 & res_type=="abs_error" & ( type=="UNITED")'
     )
-    plot_df = pd.concat(
-        [many_copy_methods,vnCDR],
-        axis=0,
-        ignore_index=True,
-    )
+    plot_df = pd.concat([many_copy_methods, vnCDR], axis=0, ignore_index=True,)
     fig = sns.relplot(
-        data=plot_df.reset_index().query('(budget==0|budget==10**10)&g==1'),
+        data=plot_df.reset_index().query("(budget==0|budget==10**10)&g==1"),
         kind="line",
         y="abs_error",
         x="Qubits",
         hue="type",
-        style='description',
+        style="description",
         col="budget",
-        estimator='max', 
+        estimator="max",
         markers=True,
-        ci=None)
-    fig.set(yscale='log')
+        ci=None,
+    )
+    fig.set(yscale="log")
     return fig
