@@ -1,3 +1,4 @@
+# Description and setup
 This is the repository that accompanies the paper [Unifying and benchmarking state-of-the-art quantum error mitigation techniques](https://arxiv.org/abs/2107.13470). Please follow the included notebooks to be able to reproduce the plots shown in the paper and easily access the dataframes for your own exploration of the data. Sadly the code to generate the data is impossible to open source. 
 Required packages
 pandas
@@ -6,3 +7,12 @@ qutip
 scikit
 matplotlib
 scipy
+
+# Structure
+This repository contains two notebooks, Plotting_MaxCut and Plotting_RQC which plot the figures seen in the paper. 
+Pandas dataframes of the raw data of the training and circuits of interest can be accessed simply by using the provided functions ```load_raw_rqc_data``` and ```load_raw_maxcut_data``` that are in the plotting_helper_RQC.py and plotting_helper.py respectively. The resulting dataframes can be saved by the user by using inbuilt pandas functions. The processed, but unfiltered data is then available as a file in the respective folder after calling the functions ```filter_rqc_data(load_rqc_data())``` (for RQC) and ```load_all_data()``` (for Max-Cut).
+
+The file post_processing_multi.py contains the code that performs the various error mitigation algorithms to the input data. 
+
+# Use
+Due to the restrictions on the simulation source code and its bespoke output filetype, this repository was written to specifically process its output. Sadly this means that using this code directly on the output of other packages will likely require a lot of work. 
