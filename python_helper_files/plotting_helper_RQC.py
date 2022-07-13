@@ -497,8 +497,8 @@ def compute_ratio(budget):
 def load_rqc_data(
     qubit_list=[4, 4, 6, 6, 8, 8, 10], depths=[4, 4 * 16, 6, 6 * 16, 8, 8 * 16, 10]
 ):
-    if Path("./RQC_runs/checkpoint.pq").is_file():
-        everything = pd.read_parquet("./RQC_runs/checkpoint.pq")
+    if Path("./RQC_runs/checkpoint_full_training.pq").is_file():
+        everything = pd.concat([pd.read_parquet("./RQC_runs/checkpoint_full_training.pq"),pd.read_parquet("./RQC_runs/checkpoint_half_training.pq")])
     else:
         base_folder = "./RQC_runs/all_qubits/"
         folders = [base_folder]
@@ -639,7 +639,8 @@ def load_rqc_data(
         NLSP3HALF_abs = NLSP3HALF_abs.assign(description="3nlsp_half")
         everything = pd.concat([NLSP3FULL_abs, NLSP3HALF_abs])
         everything["type"] = everything["type"].str.replace("_LinGrow", "")
-        everything.to_parquet("./RQC_runs/checkpoint.pq")
+        everything.query('description=="3nlsp_full"').to_parquet("./RQC_runs/checkpoint_full_training.pq")
+        everything.query('description=="3nlsp_half"').to_parquet("./RQC_runs/checkpoint_half_training.pq")
     return everything
 
 
