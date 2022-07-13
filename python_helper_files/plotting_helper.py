@@ -1,5 +1,6 @@
 import pandas as pd
 import seaborn as sns
+from pathlib import Path
 from post_processing_multi import *
 
 tags = [""]
@@ -458,8 +459,8 @@ def filter_budget(df, budgets, training=100, max_copies=6, noise_levels=3):
 def load_max_cut_data(qubit_number: int, training_set=100):
     from pathlib import Path
 
-    if Path("./MaxCut_runs/full_data_MC{qubit_number}.pkl").is_file():
-        Q = pd.read_pickle(f"./MaxCut_runs/full_data_MC{qubit_number}.pkl")
+    if Path("./MaxCut_runs/full_data_MC{qubit_number}.pq").is_file():
+        Q = pd.read_parquet(f"./MaxCut_runs/full_data_MC{qubit_number}.pq")
     else:
         base_folder = f"./MaxCut_runs/Q{qubit_number}/"
         folders = [base_folder + ""]
@@ -482,7 +483,7 @@ def load_max_cut_data(qubit_number: int, training_set=100):
         )
 
         Q = Q.assign(description="3nlsp_full")
-        Q.to_pickle(f"./MaxCut_runs/full_data_MC{qubit_number}.pkl")
+        Q.to_parquet(f"./MaxCut_runs/full_data_MC{qubit_number}.pq")
     Q_filtered = (
         filter_budget(
             Q, [0, 10 ** 5, 10 ** 6, 10 ** 7, 10 ** 8, 10 ** 9, 10 ** 10], 100
@@ -584,16 +585,20 @@ def figure_4(maxcut_df, statistic_to_plot="mean", like_paper=True):
 
 
 def load_all_data():
-    results = {qubit: load_max_cut_data(qubit) for qubit in [4, 6, 8, 10]}
-    maxcut_df = pd.concat(results.values())
-    maxcut_df = clean_data(maxcut_df)
+    if Path("./MaxCut_runs/filtered_df.pq").is_file():
+        maxcut_df = pd.read_parquet("./MaxCut_runs/filtered_df.pq")
+    else:
+        results = {qubit: load_max_cut_data(qubit) for qubit in [4, 6, 8, 10]}
+        maxcut_df = pd.concat(results.values())
+        maxcut_df = clean_data(maxcut_df)
+        maxcut_df.to_parquet("./MaxCut_runs/filtered_df.pq")
     return maxcut_df
 
 
 def load_unfiltered_data():
     dfs = []
     for i in [4, 6, 8, 10]:
-        dfs.append(pd.read_pickle(f"./MaxCut_runs/full_data_MC{i}.pkl"))
+        dfs.append(pd.read_parquet(f"./MaxCut_runs/full_data_MC{i}.pq"))
     return pd.concat(dfs).reset_index()
 
 
@@ -605,9 +610,9 @@ def load_raw_maxcut_data():
         res = []
         files = []
         for file in os.listdir(dir_path):
-            if file.endswith(".pkl") and file.startswith(f"pandas_{fi}"):
+            if file.endswith(".pq") and file.startswith(f"pandas_{fi}"):
                 res.append(
-                    pd.read_pickle(dir_path + file).assign(file=file).assign(data=fi)
+                    pd.read_parquet(dir_path + file).assign(file=file).assign(data=fi)
                 )
                 files.append(file)
         res = pd.concat(res)

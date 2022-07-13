@@ -497,8 +497,8 @@ def compute_ratio(budget):
 def load_rqc_data(
     qubit_list=[4, 4, 6, 6, 8, 8, 10], depths=[4, 4 * 16, 6, 6 * 16, 8, 8 * 16, 10]
 ):
-    if Path("./RQC_runs/checkpoint.pkl").is_file():
-        everything = pd.read_pickle("./RQC_runs/checkpoint.pkl")
+    if Path("./RQC_runs/checkpoint.pq").is_file():
+        everything = pd.read_parquet("./RQC_runs/checkpoint.pq")
     else:
         base_folder = "./RQC_runs/all_qubits/"
         folders = [base_folder]
@@ -639,15 +639,15 @@ def load_rqc_data(
         NLSP3HALF_abs = NLSP3HALF_abs.assign(description="3nlsp_half")
         everything = pd.concat([NLSP3FULL_abs, NLSP3HALF_abs])
         everything["type"] = everything["type"].str.replace("_LinGrow", "")
-        everything.to_pickle("./RQC_runs/checkpoint.pkl")
+        everything.to_parquet("./RQC_runs/checkpoint.pq")
     return everything
 
 
 def filter_rqc_data(
     df, budgets=[10 ** 5, 10 ** 6, 10 ** 7, 10 ** 8, 10 ** 9, 10 ** 10, 10 ** 11, 0]
 ):
-    if Path("./RQC_runs/filtered_data.pkl").is_file():
-        filtered_rqc = pd.read_pickle("./RQC_runs/filtered_data.pkl")
+    if Path("./RQC_runs/filtered_data.pq").is_file():
+        filtered_rqc = pd.read_parquet("./RQC_runs/filtered_data.pq")
     else:
         rqc_half_df = filter_budget(df.query('description=="3nlsp_half"'), budgets, 50)
         rqc_half_df["volume"] = (
@@ -661,7 +661,7 @@ def filter_rqc_data(
         )
         rqc_full_df["g"] = rqc_full_df.depth // rqc_full_df.Qubits
         filtered_rqc = pd.concat([rqc_full_df, rqc_half_df])
-        filtered_rqc.to_pickle("./RQC_runs/filtered_data.pkl")
+        filtered_rqc.to_parquet("./RQC_runs/filtered_data.pq")
     return filtered_rqc
 
 
@@ -759,9 +759,9 @@ def load_raw_rqc_data():
         res = []
         files = []
         for file in os.listdir(dir_path):
-            if file.endswith(".pkl") and file.startswith(f"pandas_{fi}"):
+            if file.endswith(".pq") and file.startswith(f"pandas_{fi}"):
                 res.append(
-                    pd.read_pickle(dir_path + file)
+                    pd.read_parquet(dir_path + file)
                     .assign(file=file)
                     .assign(data=fi)
                     .reset_index()

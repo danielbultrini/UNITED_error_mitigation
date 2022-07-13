@@ -396,7 +396,7 @@ class VD_CDR:
                                 ][seed_i] = noisy_dominance
 
                             if not os.path.exists(
-                                f"{self.folder}pandas_train_Q{self.Q}p{self.p}N{self.N}Nts{self.Nts}MC{self.max_copies}.pkl"
+                                f"{self.folder}pandas_train_Q{self.Q}p{self.p}N{self.N}Nts{self.Nts}MC{self.max_copies}.pq"
                             ):
                                 self.coi_panda = self.coi_panda.append(
                                     pd.DataFrame(
@@ -465,7 +465,7 @@ class VD_CDR:
             self.train_obsm = self.train_obsm_unprocessed
             self.coi_obsm = self.coi_obsm_unprocessed
         if not os.path.exists(
-            f"{self.folder}pandas_train_Q{self.Q}p{self.p}N{self.N}Nts{self.Nts}MC{self.max_copies}.pkl"
+            f"{self.folder}pandas_train_Q{self.Q}p{self.p}N{self.N}Nts{self.Nts}MC{self.max_copies}.pq"
         ):
             self.train_panda = self.train_panda.set_index(
                 ["result_type", "tag", "shots", "nlsp", "seed", "qubits", "copies"]
@@ -473,11 +473,11 @@ class VD_CDR:
             self.coi_panda = self.coi_panda.set_index(
                 ["result_type", "tag", "shots", "nlsp", "seed", "qubits", "copies"]
             )
-            self.train_panda.to_pickle(
-                f"{self.folder}pandas_train_Q{self.Q}p{self.p}N{self.N}Nts{self.Nts}MC{self.max_copies}.pkl"
+            self.train_panda.to_parquet(
+                f"{self.folder}pandas_train_Q{self.Q}p{self.p}N{self.N}Nts{self.Nts}MC{self.max_copies}.pq"
             )
-            self.coi_panda.to_pickle(
-                f"{self.folder}pandas_COI_Q{self.Q}p{self.p}N{self.N}Nts{self.Nts}MC{self.max_copies}.pkl"
+            self.coi_panda.to_parquet(
+                f"{self.folder}pandas_COI_Q{self.Q}p{self.p}N{self.N}Nts{self.Nts}MC{self.max_copies}.pq"
             )
 
     def VD_data(self):
